@@ -1,3 +1,73 @@
+:root {
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --accent: #58a6ff;
+  --card: #161b22;
+}
+
+.light {
+  --bg: #f5f5f5;
+  --text: #111;
+  --accent: #0077ff;
+  --card: #ffffff;
+}
+
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.4s ease, color 0.4s ease;
+  padding: 20px;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--accent);
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  line-height: 1.5;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ---------- THEME TOGGLE (SVG ICON) ---------- */
 #themeToggle {
   background: transparent;
   border: none;
@@ -6,16 +76,138 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  padding: 6px;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
 
 #themeToggle:hover svg {
-  transform: rotate(20deg);
+  transform: rotate(25deg);
   color: var(--text);
 }
 
 #themeToggle svg {
   transition: all 0.3s ease;
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  color: var(--accent);
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+}
+
+/* ---------- PROJECTS ---------- */
+.project {
+  margin-bottom: 25px;
+}
+
+.project h3 {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.project a {
+  text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.project a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.repo-list {
+  display: grid;
+  gap: 20px;
+}
+
+.repo {
+  background: rgba(255,255,255,0.03);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.repo a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.repo p {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ---------- CONTACT LINKS ---------- */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: var(--text);
+}
+
+/* ---------- SOCIAL ICONS ---------- */
+.social-icons {
+  position: fixed;
+  top: 18px;
+  right: 25px;
+  display: flex;
+  gap: 18px;
+  z-index: 100;
+}
+
+.social-icons svg {
+  color: var(--accent);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.social-icons svg:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  color: var(--text);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #777;
 }
