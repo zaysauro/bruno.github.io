@@ -5,8 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bruno Zayed — iOS Developer</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .social-icons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+      font-size: 1.3rem;
+    }
+    .social-icons a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: var(--text);
+    }
+  </style>
 </head>
 <body>
+  <div class="social-icons">
+    <a href="mailto:brunozay@gmail.com" title="Email">✉️</a>
+    <a href="https://medium.com/@brunozay" title="Medium" target="_blank">📰</a>
+    <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/" title="LinkedIn" target="_blank">💼</a>
+    <a href="https://github.com/zaysauro" title="GitHub" target="_blank">💻</a>
+  </div>
+
   <header class="fade-in">
     <h1>Bruno Zayed</h1>
     <p class="subtitle">iOS Developer • SwiftUI Enthusiast</p>
@@ -36,13 +61,12 @@
         <h3>Limitaê</h3>
         <p>A finance tracker that helps users set monthly limits, visualize spending,
         and achieve better balance.</p>
-        <a href="#" target="_blank">App Store</a>
+        <a href="https://github.com/zaysauro/Limitae" target="_blank">View on GitHub</a>
       </div>
 
       <div class="project">
         <h3>CoffeepixelApp</h3>
-        <p>A minimalist Pomodoro app with a pixel-art coffee cup that fills as you work
-        and empties during your break.</p>
+        <p>Aplicativo iOS minimalista para transformar fotos em pixel art 100% editável pelo usuário.</p>
         <a href="https://github.com/zaysauro/CoffeepixelApp" target="_blank">View on GitHub</a>
       </div>
     </section>
@@ -57,16 +81,17 @@
     <section id="contact" class="fade-in">
       <h2>Contact</h2>
       <p>
-        💻 GitHub: <a href="https://github.com/zaysauro" target="_blank">github.com/zaysauro</a><br>
-        💼 LinkedIn: <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285" target="_blank">
+        📧 Email: <a href="mailto:brunozay@gmail.com">brunozay@gmail.com</a><br>
+        📰 Medium: <a href="https://medium.com/@brunozay" target="_blank">medium.com/@brunozay</a><br>
+        💼 LinkedIn: <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/" target="_blank">
         linkedin.com/in/bruno-zayed-7b85a285</a><br>
-        📧 Email: <a href="mailto:brunozay@gmail.com">brunozay@gmail.com</a>
+        💻 GitHub: <a href="https://github.com/zaysauro" target="_blank">github.com/zaysauro</a>
       </p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Bruno Zayed — Built with ❤️ and Coffee</p>
+    <p>© 2025 Bruno Zayed — Built with Coffee</p>
   </footer>
 
   <script src="script.js"></script>
