@@ -147,3 +147,23 @@ footer {
   font-size: 0.9rem;
   color: #777;
 }
+.social-icons {
+  position: fixed;
+  top: 18px;
+  right: 25px;
+  display: flex;
+  gap: 18px;
+  z-index: 100;
+}
+
+.social-icons svg {
+  color: var(--accent);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.social-icons svg:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  color: var(--text);
+}
