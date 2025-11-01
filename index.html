@@ -1,0 +1,167 @@
+
+---
+
+### 🗂️ File 1: `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bruno H. Zayed - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Bruno H. Zayed</h1>
+    <p class="subtitle">iOS Developer • Product Engineer • Creator</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I'm Bruno — a developer passionate about creating meaningful apps and digital experiences.  
+      I focus on building modern, simple, and emotionally engaging applications for iOS using Swift and SwiftUI.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Limitaê</h3>
+      <p>A smart finance tracker that helps users set monthly limits, visualize expenses, and reach financial balance.</p>
+      <a href="https://apps.apple.com/jp/app/limitae/idXXXXXXXX" target="_blank">View on App Store</a>
+    </div>
+
+    <div class="project">
+      <h3>CoffeePixel</h3>
+      <p>A minimalist Pomodoro app featuring a pixel-art coffee cup that fills as you focus and empties during breaks.</p>
+      <a href="https://github.com/zaysauro/CoffeepixelApp" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>NaBagagem</h3>
+      <p>A travel planner with interactive maps, itineraries, and collaborative features built with SwiftUI and CloudKit.</p>
+      <a href="#">Learn more</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      📧 Email: <a href="mailto:brunozay@gmail.com">brunozay@gmail.com</a><br>
+      💼 LinkedIn: <a href="https://linkedin.com/in/brunohamedzayed" target="_blank">linkedin.com/in/brunohamedzayed</a><br>
+      💻 GitHub: <a href="https://github.com/zaysauro" target="_blank">github.com/zaysauro</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Bruno H. Zayed — All rights reserved.</p>
+  </footer>
+</body>
+</html>
+```
+
+---
+
+### 🗂️ File 2: `style.css`
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #222;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0077ff;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #005bcc;
+}
+
+section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  border-bottom: 2px solid #0077ff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.project {
+  margin-bottom: 25px;
+}
+
+.project h3 {
+  color: #0077ff;
+}
+
+.project a {
+  text-decoration: none;
+  color: #333;
+  background: #e6f0ff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 6px;
+  transition: background 0.3s;
+}
+
+.project a:hover {
+  background: #cfe3ff;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #666;
+}
+```
+
+---
