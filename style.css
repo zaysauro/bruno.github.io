@@ -1,18 +1,17 @@
 :root {
   --bg: #0d1117;
   --text: #e6edf3;
-  --accent: #58a6ff;
+  --accent: #00ff7f;
   --card: #161b22;
 }
 
 .light {
   --bg: #f5f5f5;
   --text: #111;
-  --accent: #0077ff;
+  --accent: #009966;
   --card: #ffffff;
 }
 
-/* ---------- RESET ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +27,7 @@ body {
   padding: 20px;
 }
 
-/* ---------- HEADER ---------- */
+/* Header */
 header {
   text-align: center;
   margin-bottom: 60px;
@@ -67,7 +66,7 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* ---------- THEME TOGGLE (SVG ICON) ---------- */
+/* Theme Toggle */
 #themeToggle {
   background: transparent;
   border: none;
@@ -86,18 +85,14 @@ nav a:hover {
   color: var(--text);
 }
 
-#themeToggle svg {
-  transition: all 0.3s ease;
-}
-
-/* ---------- SECTIONS ---------- */
+/* Sections */
 section {
   max-width: 800px;
   margin: 50px auto;
   padding: 30px;
   background: var(--card);
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  box-shadow: 0 0 10px rgba(0,255,127,0.15);
   opacity: 0;
   transform: translateY(25px);
   transition: opacity 1s ease, transform 1s ease;
@@ -114,14 +109,9 @@ section h2 {
   font-size: 1.4rem;
 }
 
-/* ---------- PROJECTS ---------- */
-.project {
-  margin-bottom: 25px;
-}
-
+/* Projects */
 .project h3 {
   color: var(--accent);
-  font-size: 1.2rem;
 }
 
 .project a {
@@ -137,9 +127,10 @@ section h2 {
 
 .project a:hover {
   background: var(--accent);
-  color: #fff;
+  color: #000;
 }
 
+/* Repo list */
 .repo-list {
   display: grid;
   gap: 20px;
@@ -149,28 +140,16 @@ section h2 {
   background: rgba(255,255,255,0.03);
   padding: 15px;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(0,255,127,0.1);
 }
 
 .repo a {
-  text-decoration: none;
   color: var(--accent);
   font-weight: 600;
+  text-decoration: none;
 }
 
-.repo p {
-  margin-top: 6px;
-  font-size: 0.9rem;
-  color: #aaa;
-}
-
-/* ---------- CONTACT LINKS ---------- */
-.contact-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
+/* Contact */
 .contact-links a {
   color: var(--accent);
   text-decoration: none;
@@ -182,7 +161,7 @@ section h2 {
   color: var(--text);
 }
 
-/* ---------- SOCIAL ICONS ---------- */
+/* Social Icons */
 .social-icons {
   position: fixed;
   top: 18px;
@@ -204,7 +183,7 @@ section h2 {
   color: var(--text);
 }
 
-/* ---------- FOOTER ---------- */
+/* Footer */
 footer {
   text-align: center;
   margin-top: 60px;
