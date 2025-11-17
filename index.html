@@ -64,6 +64,113 @@
       </div>
     </section>
 
+    <section id="supercalc" class="fade-in">
+      <h2>Super Calculadora — Flutter + Swift bridge</h2>
+      <p>
+        Conceito de calculadora avançada com visual LED futurista, efeitos glow, modo claro/escuro e integrações reais
+        entre Flutter (UI multiplataforma) e Swift (motores nativos de cálculo e persistência). Inclui bloco de notas para
+        insights rápidos e histórico navegável para auditar cada operação — ideal para um app de produtividade premium
+        em iOS e macOS.
+      </p>
+
+      <ul class="feature-list">
+        <li><strong>Flutter UI</strong> com animações suaves, sombras difusas e ícones em neon inspirados em painéis LED.</li>
+        <li><strong>Swift/SwiftUI</strong> orquestrando o core matemático, salvando histórico em Core Data e sincronizando com iCloud.</li>
+        <li><strong>Modo Light/Dark</strong> sincronizado com o sistema, incluindo estados com glow e contraste seguro.</li>
+        <li><strong>Bloco de Notas</strong> embutido para registrar fórmulas ou tarefas sem sair da calculadora.</li>
+        <li><strong>Histórico Vivo</strong> com filtros por data, tags e favoritos — perfeito para contas financeiras ou científicas.</li>
+      </ul>
+
+      <div class="super-calc-grid">
+        <div class="calc-device" aria-label="Protótipo visual da super calculadora">
+          <div class="calc-status">
+            <span class="badge">LED Glow</span>
+            <span class="badge ghost">Dark · Light</span>
+          </div>
+          <div class="calc-display">
+            <span class="calc-equation">(56 × 3.1415) + √128</span>
+            <span class="calc-result">= 199.74</span>
+          </div>
+          <div class="calc-keypad">
+            <button>AC</button>
+            <button>±</button>
+            <button>%</button>
+            <button class="accent">÷</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="accent">×</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="accent">−</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="accent">+</button>
+            <button class="ghost">Hist</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="accent">=</button>
+          </div>
+        </div>
+
+        <div class="calc-companion">
+          <div class="calc-notes">
+            <h3>Bloco de Notas</h3>
+            <p>• Guardar lembretes rápidos como “Revisar fórmula da taxa efetiva”.</p>
+            <p>• Sincronizar com Quick Notes no macOS e compartilhar via iCloud.</p>
+            <p>• Detecção de números para gerar cálculos instantâneos.</p>
+          </div>
+          <div class="calc-history">
+            <h3>Histórico Inteligente</h3>
+            <ul>
+              <li>
+                <span class="label">Hoje · 09:21</span>
+                <span>(12 000 ÷ 36) + juros compostos</span>
+              </li>
+              <li>
+                <span class="label">Ontem · Favorito</span>
+                <span>Taxa CDI mensal × 3,5</span>
+              </li>
+              <li>
+                <span class="label">Seg · Marcado</span>
+                <span>Simulação arquitetura MEP</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-code">
+        <h3>SwiftUI + FlutterChannel (pseudocódigo)</h3>
+        <pre><code>struct SuperCalcView: View {
+    @State private var note: String = ""
+    @State private var history: [CalcLog] = []
+
+    var body: some View {
+        VStack(spacing: 24) {
+            LedDisplay(equation: viewModel.currentEquation,
+                       result: viewModel.currentResult)
+                .glow()
+                .onTapGesture { FlutterBridge.shared.toggleTheme() }
+
+            KeypadGrid(onTap: viewModel.handle)
+            NotesPad(text: $note)
+            HistoryList(items: history)
+        }
+        .task { history = await viewModel.fetchHistory() }
+        .background(FlutterView()) // Flutter animações LED
+    }
+}
+</code></pre>
+        <p class="code-hint">
+          O FlutterView entrega o visual neon/LED multiplataforma, enquanto SwiftUI administra estados reativos e chama a
+          camada nativa para persistir notas, histórico e cálculos pesados (Accelerate / BNNS).
+        </p>
+      </div>
+    </section>
+
     <section id="projects" class="fade-in">
       <h2>Latest GitHub Projects</h2>
       <div id="repoList" class="repo-list">
