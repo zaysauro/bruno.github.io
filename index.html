@@ -143,30 +143,251 @@
       </div>
 
       <div class="calc-code">
-        <h3>SwiftUI + FlutterChannel (pseudocódigo)</h3>
-        <pre><code>struct SuperCalcView: View {
-    @State private var note: String = ""
-    @State private var history: [CalcLog] = []
+        <h3>SwiftUI — ContentView pronto para o Xcode</h3>
+        <pre><code class="language-swift">import SwiftUI
+
+struct HistoryItem: Identifiable {
+    let id = UUID()
+    let expression: String
+    let result: String
+    let timestamp: Date
+}
+
+struct ContentView: View {
+    enum CalcOperator { case add, subtract, multiply, divide }
+
+    @State private var display = "0"
+    @State private var storedValue: Double?
+    @State private var pendingOperator: CalcOperator?
+    @State private var shouldResetDisplay = false
+    @State private var note = ""
+    @State private var history: [HistoryItem] = []
+
+    private let keypad: [[String]] = [
+        ["AC", "±", "%", "÷"],
+        ["7", "8", "9", "×"],
+        ["4", "5", "6", "−"],
+        ["1", "2", "3", "+"],
+        ["Hist", "0", ".", "="]
+    ]
 
     var body: some View {
-        VStack(spacing: 24) {
-            LedDisplay(equation: viewModel.currentEquation,
-                       result: viewModel.currentResult)
-                .glow()
-                .onTapGesture { FlutterBridge.shared.toggleTheme() }
+        NavigationStack {
+            VStack(spacing: 24) {
+                VStack(alignment: .trailing, spacing: 6) {
+                    Text(display)
+                        .font(.system(size: 56, weight: .medium, design: .rounded))
+                        .minimumScaleFactor(0.5)
+                        .foregroundStyle(.mint)
+                    Text(pendingOperator == nil ? "Pronto para calcular" : "Operador ativo: \(symbol(for: pendingOperator!))")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding()
+                .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+                .shadow(color: .mint.opacity(0.4), radius: 20, y: 10)
 
-            KeypadGrid(onTap: viewModel.handle)
-            NotesPad(text: $note)
-            HistoryList(items: history)
+                VStack(spacing: 12) {
+                    ForEach(keypad, id: \.self) { row in
+                        HStack(spacing: 12) {
+                            ForEach(row, id: \.self) { item in
+                                Button { handleTap(item) } label: {
+                                    Text(item)
+                                        .font(.title3.bold())
+                                        .frame(maxWidth: .infinity, minHeight: 54)
+                                }
+                                .buttonStyle(CalcButtonStyle(kind: kind(for: item)))
+                            }
+                        }
+                    }
+                }
+
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Bloco de Notas")
+                        .font(.headline)
+                    TextEditor(text: $note)
+                        .frame(height: 90)
+                        .padding(12)
+                        .background(RoundedRectangle(cornerRadius: 14).fill(Color(.secondarySystemBackground)))
+                        .overlay(alignment: .topLeading) {
+                            if note.isEmpty {
+                                Text("Guardar insights, fórmulas, lembretes...")
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                                    .padding(20)
+                            }
+                        }
+                }
+
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Histórico")
+                        .font(.headline)
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 10) {
+                            ForEach(history) { item in
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("\(item.expression) = \(item.result)")
+                                        .font(.subheadline.monospaced())
+                                    Text(item.timestamp, style: .time)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14))
+                            }
+                        }
+                    }
+                    .frame(maxHeight: 160)
+                }
+            }
+            .padding(20)
+            .background(LinearGradient(colors: [.black, .mint.opacity(0.12)], startPoint: .topLeading, endPoint: .bottomTrailing))
+            .navigationTitle("Super Calculadora")
         }
-        .task { history = await viewModel.fetchHistory() }
-        .background(FlutterView()) // Flutter animações LED
+    }
+
+    private func handleTap(_ symbol: String) {
+        switch symbol {
+        case "0"..."9": inputDigit(symbol)
+        case ".": inputDecimal()
+        case "AC": clearAll()
+        case "±": toggleSign()
+        case "%": applyPercent()
+        case "÷": prepareOperation(.divide)
+        case "×": prepareOperation(.multiply)
+        case "−": prepareOperation(.subtract)
+        case "+": prepareOperation(.add)
+        case "=": calculateResult()
+        default: break // "Hist" pode abrir um sheet ou navegação customizada
+        }
+    }
+
+    private func inputDigit(_ digit: String) {
+        if shouldResetDisplay || display == "0" {
+            display = digit
+        } else {
+            display.append(digit)
+        }
+        shouldResetDisplay = false
+    }
+
+    private func inputDecimal() {
+        if shouldResetDisplay {
+            display = "0."
+            shouldResetDisplay = false
+        } else if !display.contains(".") {
+            display.append(".")
+        }
+    }
+
+    private func clearAll() {
+        display = "0"
+        storedValue = nil
+        pendingOperator = nil
+        shouldResetDisplay = false
+    }
+
+    private func toggleSign() {
+        if let value = Double(display) {
+            display = format(value * -1)
+        }
+    }
+
+    private func applyPercent() {
+        if let value = Double(display) {
+            display = format(value / 100)
+        }
+    }
+
+    private func prepareOperation(_ op: CalcOperator) {
+        storedValue = Double(display)
+        pendingOperator = op
+        shouldResetDisplay = true
+    }
+
+    private func calculateResult() {
+        guard let op = pendingOperator,
+              let lhs = storedValue,
+              let rhs = Double(display) else { return }
+
+        let result: Double
+        switch op {
+        case .add: result = lhs + rhs
+        case .subtract: result = lhs - rhs
+        case .multiply: result = lhs * rhs
+        case .divide: result = rhs == 0 ? 0 : lhs / rhs
+        }
+
+        let expression = "\(format(lhs)) \(symbol(for: op)) \(format(rhs))"
+        let formatted = format(result)
+        history.insert(HistoryItem(expression: expression, result: formatted, timestamp: Date()), at: 0)
+
+        display = formatted
+        storedValue = result
+        shouldResetDisplay = true
+        pendingOperator = nil
+    }
+
+    private func symbol(for op: CalcOperator) -> String {
+        switch op {
+        case .add: return "+"
+        case .subtract: return "−"
+        case .multiply: return "×"
+        case .divide: return "÷"
+        }
+    }
+
+    private func kind(for symbol: String) -> CalcButtonStyle.Kind {
+        switch symbol {
+        case "AC", "Hist": return .ghost
+        case "±", "%": return .utility
+        case "÷", "×", "−", "+", "=": return .accent
+        default: return .standard
+        }
+    }
+
+    private func format(_ value: Double) -> String {
+        value.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(value)) : String(value)
     }
 }
-</code></pre>
+
+struct CalcButtonStyle: ButtonStyle {
+    enum Kind { case standard, utility, accent, ghost }
+    let kind: Kind
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(kind == .accent ? .black : .white)
+            .frame(height: 54)
+            .background(background(configuration))
+            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .scaleEffect(configuration.isPressed ? 0.97 : 1)
+    }
+
+    @ViewBuilder
+    private func background(_ configuration: Configuration) -> some View {
+        let baseOpacity = configuration.isPressed ? 0.6 : 1
+        switch kind {
+        case .standard:
+            Color.white.opacity(0.08 * baseOpacity)
+        case .utility:
+            Color.cyan.opacity(0.35 * baseOpacity)
+        case .accent:
+            LinearGradient(colors: [.mint, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .opacity(baseOpacity)
+        case .ghost:
+            Color.white.opacity(0.04 * baseOpacity)
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}</code></pre>
         <p class="code-hint">
-          O FlutterView entrega o visual neon/LED multiplataforma, enquanto SwiftUI administra estados reativos e chama a
-          camada nativa para persistir notas, histórico e cálculos pesados (Accelerate / BNNS).
+          Copie o bloco acima direto para <code>ContentView.swift</code> em um projeto SwiftUI e execute — o layout, o teclado, o bloco de notas e o histórico já funcionam em modo claro/escuro, prontos para personalizar com sensores, Core Data ou bridges Flutter.
         </p>
       </div>
     </section>
