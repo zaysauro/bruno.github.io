@@ -1,184 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy - Bruno Zayed Apps</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Bruno Zayed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #007AFF;
+            --bg: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text: #1d1d1f;
+            --text-secondary: #86868b;
+            --border: #d2d2d7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 3rem 0 1rem;
+            color: var(--text);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .contact-section {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+
+        .contact-section h3 {
+            margin-top: 0;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <main style="max-width:800px;margin:60px auto;padding:30px;background:var(--card);border-radius:12px;box-shadow:0 0 10px rgba(0,255,127,0.15);">
-    
-    <h1 style="color:var(--accent);margin-bottom:20px;">Privacy Policy</h1>
-    <p>Last updated: November 2025</p>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Bruno Zayed</a>
+            <a href="index.html" class="back-link">← Voltar</a>
+        </div>
+    </nav>
 
-    <p style="margin-top:20px;">
-      This Privacy Policy applies to all mobile applications developed and published by 
-      <strong>Bruno Zayed</strong>. Each app respects your privacy and complies with 
-      Apple’s App Store Guidelines. My apps are designed to operate transparently and 
-      securely, prioritizing user privacy and data protection.
-    </p>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p class="meta">Última atualização: 24 de janeiro de 2025</p>
 
-    <hr style="border:none;border-top:1px solid rgba(0,255,127,0.2);margin:30px 0;">
+        <div class="highlight-box">
+            <p><strong>Em resumo:</strong> Seus dados são seus. Não coletamos, não vendemos, não compartilhamos nada. Nossos apps respeitam sua privacidade acima de tudo.</p>
+        </div>
 
+        <h2>Introdução</h2>
+        <p>Esta política de privacidade se aplica a todos os aplicativos desenvolvidos por Bruno Zayed (Limitaê, CoffeepixelApp e futuros apps). Levamos sua privacidade a sério e queremos que você entenda exatamente como seus dados são tratados.</p>
 
-    <!-- ==================================================== -->
-    <!--                     1. Limitaê                       -->
-    <!-- ==================================================== -->
+        <h2>Quais dados coletamos?</h2>
+        <p><strong>Nenhum dado pessoal é coletado.</strong></p>
+        
+        <p>Nossos aplicativos são projetados para funcionar completamente offline e localmente no seu dispositivo. Isso significa:</p>
+        
+        <ul>
+            <li>❌ Não coletamos seu nome, email ou qualquer informação de identificação</li>
+            <li>❌ Não rastreamos sua localização</li>
+            <li>❌ Não acessamos seus contatos ou fotos (exceto quando você escolhe uma foto para editar)</li>
+            <li>❌ Não usamos analytics ou ferramentas de rastreamento</li>
+            <li>❌ Não temos servidores próprios - tudo fica no seu iPhone/iPad</li>
+        </ul>
 
-    <h2 style="color:var(--accent);">1. Limitaê</h2>
-    <p>
-      <strong>Limitaê</strong> does not collect, store, or transmit any personal data.
-      All financial and usage data entered by the user is stored locally on the user’s iPhone
-      using Apple’s secure storage systems. The app functions 100% offline and does not
-      communicate with any external servers or third-party APIs.
-    </p>
+        <h2>Como seus dados são armazenados?</h2>
+        <p>Todos os dados gerados pelos nossos apps ficam armazenados exclusivamente no seu dispositivo:</p>
 
+        <h3>Limitaê (Finance Tracker)</h3>
+        <ul>
+            <li>Transações financeiras e limites são salvos localmente usando Core Data</li>
+            <li>Nenhum dado financeiro sai do seu dispositivo</li>
+            <li>Se você usar iCloud, a Apple pode sincronizar entre seus dispositivos (controlado por você nas configurações do iOS)</li>
+        </ul>
 
-    <!-- ==================================================== -->
-    <!--                  2. CoffeePixelApp                    -->
-    <!-- ==================================================== -->
+        <h3>CoffeepixelApp</h3>
+        <ul>
+            <li>Imagens editadas são processadas localmente</li>
+            <li>Você escolhe se quer salvar ou compartilhar - nós não guardamos nada</li>
+            <li>Nenhuma foto é enviada para servidores externos</li>
+        </ul>
 
-    <h2 style="color:var(--accent);margin-top:30px;">2. CoffeePixelApp</h2>
-    <p>
-      <strong>CoffeePixelApp</strong> also does not collect or share any user data. 
-      All image processing and pixel-art transformations occur locally on the user’s device. 
-      No photos, personal information, or analytics are transmitted or stored externally.
-    </p>
+        <h2>Uso de serviços da Apple</h2>
+        <p>Nossos apps podem usar recursos nativos do iOS:</p>
+        
+        <ul>
+            <li><strong>iCloud:</strong> Se você ativar iCloud nas configurações do iOS, a Apple pode sincronizar dados do app entre seus dispositivos. Isso é controlado por você e sujeito à política de privacidade da Apple.</li>
+            <li><strong>Biblioteca de Fotos:</strong> Alguns apps podem solicitar acesso à sua biblioteca de fotos apenas quando você escolher editar uma imagem. Nunca acessamos sem sua permissão explícita.</li>
+        </ul>
 
+        <h2>Analytics e Crash Reports</h2>
+        <p>Utilizamos apenas os recursos básicos de analytics fornecidos pela Apple através do App Store Connect para entender:</p>
+        
+        <ul>
+            <li>Número de downloads (dados agregados e anônimos)</li>
+            <li>Relatórios de crashes (para melhorar a estabilidade do app)</li>
+        </ul>
 
-    <!-- ==================================================== -->
-    <!--                     3. Freqly                        -->
-    <!-- ==================================================== -->
+        <p>Estes dados são completamente anônimos e agregados pela Apple. Não temos acesso a informações que possam identificar você individualmente.</p>
 
-    <h2 style="color:var(--accent);margin-top:30px;">3. Freqly – English → Japanese Frequency Dictionary</h2>
-    <p>
-      <strong>Freqly</strong> is a fully offline English → Japanese frequency dictionary.
-      The app does not collect, store, transmit, or share any personal data of any kind.
-    </p>
+        <h2>Compartilhamento com terceiros</h2>
+        <p><strong>Não compartilhamos nenhum dado com terceiros.</strong> Nunca. Ponto final.</p>
 
-    <h3 style="margin-top:15px;">Data Collection</h3>
-    <p>The app does <strong>not</strong> collect:</p>
-    <ul style="margin-left:20px;">
-      <li>Personal information</li>
-      <li>Usage analytics</li>
-      <li>Location data</li>
-      <li>Contacts</li>
-      <li>Identifiers</li>
-      <li>Device information</li>
-    </ul>
+        <ul>
+            <li>❌ Sem anúncios (não vendemos seu espaço de tela)</li>
+            <li>❌ Sem SDKs de tracking</li>
+            <li>❌ Sem venda de dados</li>
+            <li>❌ Sem parcerias suspeitas</li>
+        </ul>
 
-    <h3 style="margin-top:15px;">Offline Operation</h3>
-    <p>
-      Freqly works entirely offline. All vocabulary and features are available without an
-      internet connection. No information is transmitted to any server.
-    </p>
+        <h2>Segurança</h2>
+        <p>Como todos os dados ficam no seu dispositivo:</p>
+        
+        <ul>
+            <li>✅ Você controla a segurança através do Face ID/Touch ID do seu iPhone</li>
+            <li>✅ Se você ativar criptografia no iCloud, seus dados sincronizados serão criptografados</li>
+            <li>✅ Não há servidores nossos que possam ser hackeados</li>
+        </ul>
 
-    <h3 style="margin-top:15px;">Favorites & Local Data</h3>
-    <p>
-      Any user preferences or favorites are stored locally on the device and never leave
-      the user’s iPhone.
-    </p>
+        <h2>Seus direitos</h2>
+        <p>Você tem total controle sobre seus dados:</p>
+        
+        <ul>
+            <li><strong>Acessar:</strong> Todos os dados estão no app, visíveis para você a qualquer momento</li>
+            <li><strong>Deletar:</strong> Basta deletar o app para remover todos os dados do dispositivo</li>
+            <li><strong>Exportar:</strong> Alguns apps permitem exportar dados (como transações do Limitaê)</li>
+        </ul>
 
-    <h3 style="margin-top:15px;">Third-Party Services</h3>
-    <p>
-      The app does not use advertising SDKs, analytics trackers, or external APIs.
-    </p>
+        <h2>Apps de crianças</h2>
+        <p>Nossos apps não são direcionados a crianças menores de 13 anos. Não coletamos intencionalmente dados de crianças. Se você é pai/mãe e descobrir que seu filho forneceu informações, entre em contato conosco.</p>
 
+        <h2>Mudanças nesta política</h2>
+        <p>Podemos atualizar esta política ocasionalmente. Notificaremos mudanças significativas através de:</p>
+        
+        <ul>
+            <li>Atualização da data no topo desta página</li>
+            <li>Aviso dentro do app (em casos de mudanças importantes)</li>
+        </ul>
 
-    <!-- ==================================================== -->
-    <!--               4. Daily Psalms & Bible                 -->
-    <!-- ==================================================== -->
+        <h2>Jurisdição</h2>
+        <p>Esta política de privacidade é regida pelas leis do Brasil. Cumprimos com a Lei Geral de Proteção de Dados (LGPD).</p>
 
-    <h2 style="color:var(--accent);margin-top:30px;">4. Daily Psalms & Bible</h2>
-    <p>
-      <strong>Daily Psalms & Bible</strong> is a Christian devotional app that allows users 
-      to read Psalms, Bible verses, and daily spiritual reflections. The app is designed to be simple, 
-      inspiring, and distraction-free.
-    </p>
+        <div class="contact-section">
+            <h3>Dúvidas sobre privacidade?</h3>
+            <p>Se você tiver qualquer dúvida sobre esta política de privacidade ou sobre como seus dados são tratados, entre em contato:</p>
+            <p>
+                📧 Email: <a href="mailto:brunozay@gmail.com">brunozay@gmail.com</a><br>
+                🔗 LinkedIn: <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/">Bruno Zayed</a><br>
+                💻 GitHub: <a href="https://github.com/zaysauro">@zaysauro</a>
+            </p>
+        </div>
 
-    <h3 style="margin-top:15px;">Data Collection</h3>
-    <p>The app does <strong>not</strong> collect, store, or transmit any personal data.</p>
-    <ul style="margin-left:20px;">
-      <li>No personal information</li>
-      <li>No analytics or tracking by the developer</li>
-      <li>No account or login required</li>
-      <li>No cloud storage or external servers</li>
-    </ul>
+        <div class="highlight-box">
+            <p><strong>Compromisso:</strong> Desenvolvemos apps que respeitam você. Privacidade não é um extra, é o padrão. Se algum dia isso mudar, você será o primeiro a saber.</p>
+        </div>
+    </div>
 
-    <h3 style="margin-top:15px;">Offline Usage</h3>
-    <p>
-      Daily Psalms & Bible works fully offline after installation. Scripture content is 
-      displayed locally on the device and does not require a network connection.
-    </p>
-
-    <h3 style="margin-top:15px;">Advertising & Monetization</h3>
-    <p>
-      The app may display banner ads through Google AdMob.  
-      AdMob may collect anonymous data required for ad delivery, following Google’s privacy policies.
-      No data is collected by the developer.
-    </p>
-
-    <h3 style="margin-top:15px;">Third-Party Services</h3>
-    <ul style="margin-left:20px;">
-      <li><strong>Google AdMob</strong> for advertising</li>
-      <li>No other third-party SDKs are used</li>
-    </ul>
-
-    <h3 style="margin-top:15px;">User Content</h3>
-    <p>
-      The app does not allow users to upload, generate, or share content. There is no cloud sync, 
-      account system, or remote storage.
-    </p>
-
-
-    <!-- ==================================================== -->
-    <!--            5. General Privacy Principles              -->
-    <!-- ==================================================== -->
-
-    <h2 style="color:var(--accent);margin-top:30px;">5. General Privacy Principles</h2>
-    <ul style="margin-left:20px;margin-top:10px;">
-      <li>All apps are built with user privacy as a core principle.</li>
-      <li>No user data is sold, shared, or analyzed by external entities.</li>
-      <li>All storage is local unless explicitly stated otherwise in a future app’s description.</li>
-    </ul>
-
-
-    <!-- ==================================================== -->
-    <!--               6. Third-Party Services                 -->
-    <!-- ==================================================== -->
-
-    <h2 style="color:var(--accent);margin-top:30px;">6. Third-Party Services</h2>
-    <p>
-      At this time, none of the listed apps use external APIs or cloud services for 
-      analytics or personal data collection. Any future apps that use services such as 
-      CloudKit or Firebase will have their usage clearly disclosed in updated versions 
-      of this policy.
-    </p>
-
-
-    <!-- ==================================================== -->
-    <!--                     7. Support                        -->
-    <!-- ==================================================== -->
-
-    <h2 style="color:var(--accent);margin-top:30px;">7. Support</h2>
-    <p>If you need help, have questions, or want to report an issue, you can reach me directly:</p>
-    <p>
-      <strong>Email:</strong> 
-      <a href="mailto:brunozay@gmail.com" style="color:var(--accent);">brunozay@gmail.com</a><br>
-      <strong>GitHub:</strong> 
-      <a href="https://github.com/zaysauro" style="color:var(--accent);" target="_blank">github.com/zaysauro</a>
-    </p>
-
-
-    <!-- ==================================================== -->
-    <!--                      FOOTER                          -->
-    <!-- ==================================================== -->
-
-    <footer style="margin-top:60px;text-align:center;font-size:0.9rem;color:#777;">
-      © 2025 Bruno Zayed — All rights reserved.
+    <footer>
+        <p>© 2025 Bruno Zayed • iOS Developer</p>
+        <p><a href="index.html">← Voltar para o site</a></p>
     </footer>
-
-  </main>
 </body>
 </html>
