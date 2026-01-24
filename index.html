@@ -1,419 +1,528 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bruno Zayed — iOS Developer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Zayed - iOS Developer & Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Favicon -->
-<link rel="icon" type="image/png" href="bz-icon.png">  
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-</head>
+        :root {
+            --primary: #007AFF;
+            --primary-dark: #0051D5;
+            --bg: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text: #1d1d1f;
+            --text-secondary: #86868b;
+            --border: #d2d2d7;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
 
-<body>
-  <!-- Social Icons -->
-  <div class="social-icons">
-    <a href="mailto:brunozay@gmail.com" aria-label="Email">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 12V9.24l-8 6.99-8-6.99V18h16z"/></svg>
-    </a>
-    <a href="https://medium.com/@brunozay" target="_blank" aria-label="Medium">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm2.75 4.25v7.5L11 12l-4.25-3.75zM18 8.5l-4 3.5 4 3.5v-7z"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/" target="_blank" aria-label="LinkedIn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.7-2.3 3.9-2.3 4.2 0 5 2.8 5 6.4v9.7h-4v-8.6c0-2-.1-4.5-2.7-4.5-2.7 0-3.1 2.1-3.1 4.3v8.8h-4V8z"/></svg>
-    </a>
-    <a href="https://github.com/zaysauro" target="_blank" aria-label="GitHub">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.94.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.3 1.18-3.11-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.38.97 0 1.95.13 2.86.38 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.85 1.18 3.11 0 4.43-2.7 5.41-5.28 5.69.41.35.78 1.04.78 2.1 0 1.52-.01 2.74-.01 3.11 0 .31.21.68.8.56C20.71 21.4 24 17.09 24 12 24 5.65 18.35.5 12 .5z"/></svg>
-    </a>
-  </div>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
 
-  <header class="fade-in">
-    <h1>Bruno Zayed</h1>
-    <p class="subtitle">iOS Developer (Mid-Level) | Swift · SwiftUI · UIKit | AI-Driven Coding & Cross-Language Awareness</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#featured">Featured</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <button id="themeToggle" aria-label="Toggle Theme">
-        <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 0 1 12.21 3a7 7 0 1 0 8.79 9.79z"/>
-        </svg>
-      </button>
-    </nav>
-  </header>
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
 
-  <main>
-    <section id="about" class="fade-in">
-      <h2>About Me</h2>
-      <p>Hi, I’m Bruno — an iOS developer passionate about creating simple, elegant, and emotionally engaging experiences with Swift and SwiftUI. I build apps that blend technology and creativity to make everyday life smoother.</p>
-    </section>
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    <section id="featured" class="fade-in">
-      <h2>Featured Apps</h2>
-      <div class="project">
-        <h3>Limitaê</h3>
-        <p>A finance tracker that helps users set monthly limits, visualize spending, and achieve better balance.</p>
-        <a href="https://github.com/zaysauro/Limitae" target="_blank">View on GitHub</a>
-      </div>
-      <div class="project">
-        <h3>CoffeepixelApp</h3>
-        <p>Aplicativo iOS minimalista para transformar fotos em pixel art 100% editável pelo usuário.</p>
-        <a href="https://github.com/zaysauro/CoffeepixelApp" target="_blank">View on GitHub</a>
-      </div>
-    </section>
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
 
-    <section id="supercalc" class="fade-in">
-      <h2>Super Calculadora — Flutter + Swift bridge</h2>
-      <p>
-        Conceito de calculadora avançada com visual LED futurista, efeitos glow, modo claro/escuro e integrações reais
-        entre Flutter (UI multiplataforma) e Swift (motores nativos de cálculo e persistência). Inclui bloco de notas para
-        insights rápidos e histórico navegável para auditar cada operação — ideal para um app de produtividade premium
-        em iOS e macOS.
-      </p>
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-      <ul class="feature-list">
-        <li><strong>Flutter UI</strong> com animações suaves, sombras difusas e ícones em neon inspirados em painéis LED.</li>
-        <li><strong>Swift/SwiftUI</strong> orquestrando o core matemático, salvando histórico em Core Data e sincronizando com iCloud.</li>
-        <li><strong>Modo Light/Dark</strong> sincronizado com o sistema, incluindo estados com glow e contraste seguro.</li>
-        <li><strong>Bloco de Notas</strong> embutido para registrar fórmulas ou tarefas sem sair da calculadora.</li>
-        <li><strong>Histórico Vivo</strong> com filtros por data, tags e favoritos — perfeito para contas financeiras ou científicas.</li>
-      </ul>
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-      <div class="super-calc-grid">
-        <div class="calc-device" aria-label="Protótipo visual da super calculadora">
-          <div class="calc-status">
-            <span class="badge">LED Glow</span>
-            <span class="badge ghost">Dark · Light</span>
-          </div>
-          <div class="calc-display">
-            <span class="calc-equation">(56 × 3.1415) + √128</span>
-            <span class="calc-result">= 199.74</span>
-          </div>
-          <div class="calc-keypad">
-            <button>AC</button>
-            <button>±</button>
-            <button>%</button>
-            <button class="accent">÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="accent">×</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button class="accent">−</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="accent">+</button>
-            <button class="ghost">Hist</button>
-            <button>0</button>
-            <button>.</button>
-            <button class="accent">=</button>
-          </div>
-        </div>
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-        <div class="calc-companion">
-          <div class="calc-notes">
-            <h3>Bloco de Notas</h3>
-            <p>• Guardar lembretes rápidos como “Revisar fórmula da taxa efetiva”.</p>
-            <p>• Sincronizar com Quick Notes no macOS e compartilhar via iCloud.</p>
-            <p>• Detecção de números para gerar cálculos instantâneos.</p>
-          </div>
-          <div class="calc-history">
-            <h3>Histórico Inteligente</h3>
-            <ul>
-              <li>
-                <span class="label">Hoje · 09:21</span>
-                <span>(12 000 ÷ 36) + juros compostos</span>
-              </li>
-              <li>
-                <span class="label">Ontem · Favorito</span>
-                <span>Taxa CDI mensal × 3,5</span>
-              </li>
-              <li>
-                <span class="label">Seg · Marcado</span>
-                <span>Simulação arquitetura MEP</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
 
-      <div class="calc-code">
-        <h3>SwiftUI — ContentView pronto para o Xcode</h3>
-        <pre><code class="language-swift">import SwiftUI
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), #5856d6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-struct HistoryItem: Identifiable {
-    let id = UUID()
-    let expression: String
-    let result: String
-    let timestamp: Date
-}
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
 
-struct ContentView: View {
-    enum CalcOperator { case add, subtract, multiply, divide }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-    @State private var display = "0"
-    @State private var storedValue: Double?
-    @State private var pendingOperator: CalcOperator?
-    @State private var shouldResetDisplay = false
-    @State private var note = ""
-    @State private var history: [HistoryItem] = []
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
 
-    private let keypad: [[String]] = [
-        ["AC", "±", "%", "÷"],
-        ["7", "8", "9", "×"],
-        ["4", "5", "6", "−"],
-        ["1", "2", "3", "+"],
-        ["Hist", "0", ".", "="]
-    ]
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
 
-    var body: some View {
-        NavigationStack {
-            VStack(spacing: 24) {
-                VStack(alignment: .trailing, spacing: 6) {
-                    Text(display)
-                        .font(.system(size: 56, weight: .medium, design: .rounded))
-                        .minimumScaleFactor(0.5)
-                        .foregroundStyle(.mint)
-                    Text(pendingOperator == nil ? "Pronto para calcular" : "Operador ativo: \(symbol(for: pendingOperator!))")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding()
-                .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-                .shadow(color: .mint.opacity(0.4), radius: 20, y: 10)
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
 
-                VStack(spacing: 12) {
-                    ForEach(keypad, id: \.self) { row in
-                        HStack(spacing: 12) {
-                            ForEach(row, id: \.self) { item in
-                                Button { handleTap(item) } label: {
-                                    Text(item)
-                                        .font(.title3.bold())
-                                        .frame(maxWidth: .infinity, minHeight: 54)
-                                }
-                                .buttonStyle(CalcButtonStyle(kind: kind(for: item)))
-                            }
-                        }
-                    }
-                }
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text);
+        }
 
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Bloco de Notas")
-                        .font(.headline)
-                    TextEditor(text: $note)
-                        .frame(height: 90)
-                        .padding(12)
-                        .background(RoundedRectangle(cornerRadius: 14).fill(Color(.secondarySystemBackground)))
-                        .overlay(alignment: .topLeading) {
-                            if note.isEmpty {
-                                Text("Guardar insights, fórmulas, lembretes...")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                                    .padding(20)
-                            }
-                        }
-                }
+        .btn-secondary:hover {
+            background: var(--border);
+        }
 
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Histórico")
-                        .font(.headline)
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 10) {
-                            ForEach(history) { item in
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("\(item.expression) = \(item.result)")
-                                        .font(.subheadline.monospaced())
-                                    Text(item.timestamp, style: .time)
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
-                                }
-                                .padding()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14))
-                            }
-                        }
-                    }
-                    .frame(maxHeight: 160)
-                }
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+        }
+
+        /* Blog Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .post-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-tag {
+            display: inline-block;
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Featured Projects */
+        .projects-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .project-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary), #5856d6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            font-size: 0.875rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
             }
-            .padding(20)
-            .background(LinearGradient(colors: [.black, .mint.opacity(0.12)], startPoint: .topLeading, endPoint: .bottomTrailing))
-            .navigationTitle("Super Calculadora")
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .posts-grid,
+            .projects-showcase {
+                grid-template-columns: 1fr;
+            }
         }
-    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Bruno Zayed</a>
+            <ul class="nav-links">
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    private func handleTap(_ symbol: String) {
-        switch symbol {
-        case "0"..."9": inputDigit(symbol)
-        case ".": inputDecimal()
-        case "AC": clearAll()
-        case "±": toggleSign()
-        case "%": applyPercent()
-        case "÷": prepareOperation(.divide)
-        case "×": prepareOperation(.multiply)
-        case "−": prepareOperation(.subtract)
-        case "+": prepareOperation(.add)
-        case "=": calculateResult()
-        default: break // "Hist" pode abrir um sheet ou navegação customizada
-        }
-    }
-
-    private func inputDigit(_ digit: String) {
-        if shouldResetDisplay || display == "0" {
-            display = digit
-        } else {
-            display.append(digit)
-        }
-        shouldResetDisplay = false
-    }
-
-    private func inputDecimal() {
-        if shouldResetDisplay {
-            display = "0."
-            shouldResetDisplay = false
-        } else if !display.contains(".") {
-            display.append(".")
-        }
-    }
-
-    private func clearAll() {
-        display = "0"
-        storedValue = nil
-        pendingOperator = nil
-        shouldResetDisplay = false
-    }
-
-    private func toggleSign() {
-        if let value = Double(display) {
-            display = format(value * -1)
-        }
-    }
-
-    private func applyPercent() {
-        if let value = Double(display) {
-            display = format(value / 100)
-        }
-    }
-
-    private func prepareOperation(_ op: CalcOperator) {
-        storedValue = Double(display)
-        pendingOperator = op
-        shouldResetDisplay = true
-    }
-
-    private func calculateResult() {
-        guard let op = pendingOperator,
-              let lhs = storedValue,
-              let rhs = Double(display) else { return }
-
-        let result: Double
-        switch op {
-        case .add: result = lhs + rhs
-        case .subtract: result = lhs - rhs
-        case .multiply: result = lhs * rhs
-        case .divide: result = rhs == 0 ? 0 : lhs / rhs
-        }
-
-        let expression = "\(format(lhs)) \(symbol(for: op)) \(format(rhs))"
-        let formatted = format(result)
-        history.insert(HistoryItem(expression: expression, result: formatted, timestamp: Date()), at: 0)
-
-        display = formatted
-        storedValue = result
-        shouldResetDisplay = true
-        pendingOperator = nil
-    }
-
-    private func symbol(for op: CalcOperator) -> String {
-        switch op {
-        case .add: return "+"
-        case .subtract: return "−"
-        case .multiply: return "×"
-        case .divide: return "÷"
-        }
-    }
-
-    private func kind(for symbol: String) -> CalcButtonStyle.Kind {
-        switch symbol {
-        case "AC", "Hist": return .ghost
-        case "±", "%": return .utility
-        case "÷", "×", "−", "+", "=": return .accent
-        default: return .standard
-        }
-    }
-
-    private func format(_ value: Double) -> String {
-        value.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(value)) : String(value)
-    }
-}
-
-struct CalcButtonStyle: ButtonStyle {
-    enum Kind { case standard, utility, accent, ghost }
-    let kind: Kind
-
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundColor(kind == .accent ? .black : .white)
-            .frame(height: 54)
-            .background(background(configuration))
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            .scaleEffect(configuration.isPressed ? 0.97 : 1)
-    }
-
-    @ViewBuilder
-    private func background(_ configuration: Configuration) -> some View {
-        let baseOpacity = configuration.isPressed ? 0.6 : 1
-        switch kind {
-        case .standard:
-            Color.white.opacity(0.08 * baseOpacity)
-        case .utility:
-            Color.cyan.opacity(0.35 * baseOpacity)
-        case .accent:
-            LinearGradient(colors: [.mint, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .opacity(baseOpacity)
-        case .ghost:
-            Color.white.opacity(0.04 * baseOpacity)
-        }
-    }
-}
-
-#Preview {
-    ContentView()
-}</code></pre>
-        <p class="code-hint">
-          Copie o bloco acima direto para <code>ContentView.swift</code> em um projeto SwiftUI e execute — o layout, o teclado, o bloco de notas e o histórico já funcionam em modo claro/escuro, prontos para personalizar com sensores, Core Data ou bridges Flutter.
-        </p>
-      </div>
+    <section class="hero">
+        <h1>iOS Developer & Creator</h1>
+        <p>Construindo apps que misturam tecnologia e criatividade para tornar o dia a dia mais simples e agradável.</p>
+        <div class="cta-buttons">
+            <a href="#blog" class="btn btn-primary">Ver Blog</a>
+            <a href="#projects" class="btn btn-secondary">Meus Apps</a>
+        </div>
     </section>
 
-    <section id="projects" class="fade-in">
-      <h2>Latest GitHub Projects</h2>
-      <div id="repoList" class="repo-list">
-        <p>Loading repositories...</p>
-      </div>
+    <section id="blog">
+        <h2 class="section-title">Últimos Posts</h2>
+        <p class="section-subtitle">Histórias sobre criação de apps, desafios técnicos e aprendizados</p>
+        
+        <div class="posts-grid">
+            <a href="blog/limitae.html" class="post-card">
+                <div class="post-image">💰</div>
+                <div class="post-content">
+                    <span class="post-tag">Finance</span>
+                    <h3 class="post-title">Como Criei o Limitaê</h3>
+                    <p class="post-excerpt">A jornada de desenvolver um app de controle financeiro do zero, os desafios com SwiftUI e as lições aprendidas.</p>
+                    <div class="post-meta">
+                        <span>📅 Jan 2025</span>
+                        <span>⏱️ 8 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="blog/coffeepixel.html" class="post-card">
+                <div class="post-image">🎨</div>
+                <div class="post-content">
+                    <span class="post-tag">Design</span>
+                    <h3 class="post-title">CoffeepixelApp: Da Ideia ao Launch</h3>
+                    <p class="post-excerpt">Como transformei uma ideia maluca de converter fotos em pixel art num app publicado na App Store.</p>
+                    <div class="post-meta">
+                        <span>📅 Dez 2024</span>
+                        <span>⏱️ 10 min</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="blog/super-calculadora.html" class="post-card">
+                <div class="post-image">🔢</div>
+                <div class="post-content">
+                    <span class="post-tag">Flutter + Swift</span>
+                    <h3 class="post-title">Super Calculadora: Flutter Bridge</h3>
+                    <p class="post-excerpt">Explorando a integração entre Flutter e Swift nativo para criar uma calculadora premium com recursos avançados.</p>
+                    <div class="post-meta">
+                        <span>📅 Jan 2025</span>
+                        <span>⏱️ 12 min</span>
+                    </div>
+                </div>
+            </a>
+        </div>
     </section>
 
-    <section id="contact" class="fade-in">
-      <h2>Contact</h2>
-      <div class="contact-links">
-        <a href="mailto:brunozay@gmail.com" target="_blank">Email</a>
-        <a href="https://medium.com/@brunozay" target="_blank">Medium</a>
-        <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/zaysauro" target="_blank">GitHub</a>
-      </div>
+    <section id="projects">
+        <h2 class="section-title">Apps Publicados</h2>
+        <p class="section-subtitle">Projetos disponíveis na App Store</p>
+
+        <div class="projects-showcase">
+            <div class="project-card">
+                <div class="project-icon">💰</div>
+                <h3>Limitaê</h3>
+                <p>Tracker financeiro para definir limites mensais, visualizar gastos e conquistar equilíbrio nas finanças.</p>
+                <div class="project-links">
+                    <a href="blog/limitae.html" class="project-link">Ler Post →</a>
+                    <a href="https://github.com/zaysauro/Limitae" class="project-link">GitHub →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🎨</div>
+                <h3>CoffeepixelApp</h3>
+                <p>App minimalista para transformar fotos em pixel art 100% editável pelo usuário.</p>
+                <div class="project-links">
+                    <a href="blog/coffeepixel.html" class="project-link">Ler Post →</a>
+                    <a href="https://github.com/zaysauro/CoffeepixelApp" class="project-link">GitHub →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🔢</div>
+                <h3>Super Calculadora</h3>
+                <p>Calculadora premium com Flutter UI e core Swift, incluindo histórico inteligente e notas rápidas.</p>
+                <div class="project-links">
+                    <a href="blog/super-calculadora.html" class="project-link">Ler Post →</a>
+                    <a href="#" class="project-link">Em Desenvolvimento</a>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2025 Bruno Zayed — Built with Coffee</p>
-  </footer>
+    <section id="tools">
+        <h2 class="section-title">Ferramentas Interativas</h2>
+        <p class="section-subtitle">Projetos que você pode usar direto no navegador</p>
 
-  <script src="script.js"></script>
+        <div class="projects-showcase">
+            <div class="project-card">
+                <div class="project-icon">🧮</div>
+                <h3>Calculadora Científica</h3>
+                <p>Calculadora completa com funções trigonométricas, logaritmos e histórico de operações.</p>
+                <div class="project-links">
+                    <a href="tools/calculator.html" class="project-link">Abrir Tool →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">⏱️</div>
+                <h3>Pomodoro Tracker</h3>
+                <p>Timer Pomodoro com estatísticas de produtividade e histórico de sessões.</p>
+                <div class="project-links">
+                    <a href="tools/pomodoro.html" class="project-link">Abrir Tool →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">💱</div>
+                <h3>Conversor de Moedas</h3>
+                <p>Conversão de moedas em tempo real com taxas atualizadas e histórico de câmbio.</p>
+                <div class="project-links">
+                    <a href="tools/currency.html" class="project-link">Em Breve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Apps</h4>
+                <ul>
+                    <li><a href="blog/limitae.html">Limitaê</a></li>
+                    <li><a href="blog/coffeepixel.html">CoffeepixelApp</a></li>
+                    <li><a href="blog/super-calculadora.html">Super Calculadora</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="https://github.com/zaysauro">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/">LinkedIn</a></li>
+                    <li><a href="https://medium.com/@brunozay">Medium</a></li>
+                    <li><a href="mailto:brunozay@gmail.com">Email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Bruno Zayed • iOS Developer • Built with ☕ and Swift</p>
+        </div>
+    </footer>
 </body>
 </html>
