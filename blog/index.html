@@ -148,40 +148,30 @@
 </header>
 
 <section>
-  <div class="posts-grid">
-
-    <a href="limitae.html" class="post-card">
-      <span class="post-tag">Finance</span>
-      <h3 class="post-title">How I Built Limitaê</h3>
-      <p class="post-excerpt">
-        The journey of creating a simple, private finance app.
-      </p>
-    </a>
-
-    <a href="deskmate.html" class="post-card">
-      <span class="post-tag">macOS</span>
-      <h3 class="post-title">DeskMate Organizer</h3>
-      <p class="post-excerpt">
-        An automatic desktop organizer for macOS.
-      </p>
-    </a>
-
-    <a href="plannerfy.html" class="post-card">
-      <span class="post-tag">Travel</span>
-      <h3 class="post-title">Plannerfy</h3>
-      <p class="post-excerpt">
-        Travel planning made by real people.
-      </p>
-    </a>
-
-    <!-- novos posts entram aqui -->
-
-  </div>
+  <div class="posts-grid" id="postsGrid"></div>
 </section>
-
 <footer>
   © 2025 Bruno Zayed
 </footer>
 
 </body>
 </html>
+<script src="posts.js"></script>
+
+<script>
+  const grid = document.getElementById("postsGrid");
+
+  posts.forEach(post => {
+    const card = document.createElement("a");
+    card.href = post.slug;
+    card.className = "post-card";
+
+    card.innerHTML = `
+      <span class="post-tag">${post.tag}</span>
+      <h3 class="post-title">${post.title}</h3>
+      <p class="post-excerpt">${post.excerpt}</p>
+    `;
+
+    grid.appendChild(card);
+  });
+</script>
