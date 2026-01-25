@@ -1,663 +1,338 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoffeePixel: Da Ideia ao Launch - Bruno Zayed</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #FF6B35;
-            --accent: #F7931E;
-            --bg: #ffffff;
-            --bg-secondary: #f5f5f7;
-            --text: #1d1d1f;
-            --text-secondary: #86868b;
-            --border: #d2d2d7;
-            --success: #34C759;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-        }
-
-        .back-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .hero-post {
-            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-            color: white;
-        }
-
-        .post-icon {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-post h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .post-meta-hero {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-top: 1.5rem;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .intro-box {
-            background: var(--bg-secondary);
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0 3rem;
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 3rem 0 1.5rem;
-            color: var(--text);
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem;
-            color: var(--text);
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.125rem;
-            line-height: 1.8;
-        }
-
-        ul {
-            margin: 1rem 0 1.5rem 2rem;
-        }
-
-        li {
-            margin-bottom: 0.75rem;
-            font-size: 1.125rem;
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .feature-card {
-            background: var(--bg);
-            border: 2px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .feature-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .feature-card p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        .quote-box {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            font-size: 1.25rem;
-            font-style: italic;
-            border-left: 4px solid var(--accent);
-        }
-
-        .code-block {
-            background: #1d1d1f;
-            color: #00ff00;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            overflow-x: auto;
-            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-            font-size: 0.9rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 2rem 1rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 1.5rem 0;
-        }
-
-        .tech-tag {
-            background: var(--bg-secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--primary);
-            border: 2px solid var(--border);
-        }
-
-        .lesson-box {
-            background: linear-gradient(135deg, #34C759, #30D158);
-            color: white;
-            padding: 2rem;
-            border-radius: 16px;
-            margin: 2rem 0;
-        }
-
-        .lesson-box h3 {
-            color: white;
-            margin-top: 0;
-        }
-
-        .lesson-box ul {
-            margin-left: 1.5rem;
-        }
-
-        .lesson-box li {
-            margin-bottom: 0.75rem;
-            font-size: 1.125rem;
-        }
-
-        .warning-box {
-            background: #FFF3CD;
-            border-left: 4px solid #FFB020;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-
-        .warning-box strong {
-            color: #856404;
-        }
-
-        .pixel-demo {
-            background: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), 
-                        linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-            background-color: #f0f0f0;
-            padding: 3rem;
-            border-radius: 16px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .pixel-example {
-            display: inline-block;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-section {
-            background: var(--bg-secondary);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .cta-section h3 {
-            margin: 0 0 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            margin: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background: #E85A2A;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--bg);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border);
-            box-shadow: none;
-        }
-
-        footer {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            margin-top: 4rem;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-
-        @media (max-width: 768px) {
-            .hero-post {
-                padding: 3rem 1rem 2rem;
-            }
-
-            .container {
-                padding: 2rem 1rem;
-            }
-
-            .post-meta-hero {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="nav-container">
-            <a href="../index.html" class="logo">Bruno Zayed</a>
-            <a href="../index.html#blog" class="back-link">← Voltar pro Blog</a>
-        </div>
-    </nav>
-
-    <div class="hero-post">
-        <div class="post-icon">🎨</div>
-        <h1>CoffeePixel: Da Ideia ao Launch</h1>
-        <div class="post-meta-hero">
-            <span>📅 Dezembro 2024</span>
-            <span>⏱️ 12 min de leitura</span>
-            <span>💻 SwiftUI + Core Image</span>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="intro-box">
-            "Transformar fotos em pixel art é algo que sempre achei fascinante. Mas os apps que eu encontrava eram caros, complicados ou cheios de ads. Decidi fazer o meu: simples, bonito e 100% offline. Bem-vindo ao CoffeePixel."
-        </div>
-
-        <h2>A Faísca Inicial</h2>
-        <p>Sabe quando você tá scrollando o Instagram e vê aqueles perfis retrô com tudo pixelado? Avatares 8-bit, fotos que parecem saídas de um jogo de NES, aquela estética nostálgica anos 80/90?</p>
-
-        <p>Eu achava massa demais. Queria fazer o mesmo com minhas fotos, mas aí vem o problema: os apps disponíveis ou eram super complicados (tipo Photoshop com 500 passos), ou eram apps móveis cheios de ads, paywall e features que eu nunca ia usar.</p>
-
-        <p>Pensei: <span class="highlight">"Por que não existe um app que só faz UMA coisa bem feita: pega foto, deixa pixelada, pronto?"</span></p>
-
-        <p>E assim nasceu a ideia do CoffeePixel — enquanto eu tomava um café, óbvio. ☕</p>
-
-        <h2>O Desafio: Pixel Art Não É Só "Deixar Quadradão"</h2>
-
-        <p>No início, eu pensava que seria simples: pegar uma imagem, reduzir a resolução, ampliar de novo. Boom, pixel art.</p>
-
-        <p>Errado. MUITO errado.</p>
-
-        <p>Pixel art de qualidade envolve:</p>
-
-        <ul>
-            <li><strong>Controle de paleta de cores:</strong> Não adianta ter 16 milhões de cores. Pixel art clássica usa paletas limitadas (16, 32, 64 cores no máximo).</li>
-            <li><strong>Dithering inteligente:</strong> Como criar gradientes quando você tem poucas cores? Dithering — aqueles padrões de pontos que criam ilusão de mais tons.</li>
-            <li><strong>Preservação de detalhes:</strong> Pixelizar demais = borrão ilegível. Pixelizar de menos = não parece pixel art. O equilíbrio é tudo.</li>
-            <li><strong>Renderização nítida:</strong> Quando você amplia de volta, não pode ficar borrado. Tem que ser edge-to-edge sharp.</li>
-        </ul>
-
-        <p>Levei uns dias só pra entender a matemática por trás disso tudo.</p>
-
-        <h2>A Stack Técnica</h2>
-
-        <h3>Core Image: O Coração do App</h3>
-        <p>Apple tem um framework incrível chamado Core Image que processa imagens usando GPU. É rápido, eficiente e tem filtros prontos.</p>
-
-        <p>Mas... não tem um filtro pronto de "pixelate" que funcione bem pra pixel art. Os filtros de pixelização normais só fazem blur em blocos — não é a mesma coisa.</p>
-
-        <p>Tive que criar minha própria pipeline de filtros:</p>
-
-        <div class="code-block">
-// Processo simplificado
-1. Reduzir imagem pra escala desejada (ex: 64x64 px)
-2. Aplicar quantização de cores (reduzir paleta)
-3. Opcional: aplicar dithering
-4. Ampliar usando nearest-neighbor (sem interpolação)
-5. Aplicar sharpening pra realçar bordas
-        </div>
-
-        <p>O truque do <strong>nearest-neighbor scaling</strong> é crucial. Se você usar interpolação bilinear/bicúbica (que é o padrão), a imagem fica suave/borrada. Nearest-neighbor mantém os pixels hard-edged.</p>
-
-        <h3>UIKit + SwiftUI: A Ponte</h3>
-        <p>A interface é 100% SwiftUI porque é rápida de desenvolver e fica linda. Mas Core Image trabalha melhor com UIKit (UIImage, CIImage, etc).</p>
-
-        <p>Tive que criar bridges entre os dois mundos. Especialmente na hora de:</p>
-
-        <ul>
-            <li>Pegar foto da galeria (UIImagePickerController)</li>
-            <li>Processar com Core Image</li>
-            <li>Exibir preview em tempo real no SwiftUI</li>
-            <li>Salvar resultado final</li>
-        </ul>
-
-        <p>O maior desafio foi fazer o preview ser <strong>reativo em tempo real</strong> quando o usuário muda o slider de tamanho de pixel. Teve que ser async/await com Task pra não travar a UI.</p>
-
-        <h2>As Funcionalidades Principais</h2>
-
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h4>Conversão Instantânea</h4>
-                <p>Escolhe a foto, ajusta o slider, vê o resultado na hora. Sem espera, sem loading eterno.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h4>Controle de Pixel Size</h4>
-                <p>Slider intuitivo pra controlar o nível de pixelização — de sutil a super retrô.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎭</div>
-                <h4>Filtros de Cor</h4>
-                <p>Paletas retrô (Game Boy, CGA, preto e branco) pra dar aquela vibe old-school.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📴</div>
-                <h4>100% Offline</h4>
-                <p>Processa tudo localmente. Suas fotos nunca saem do celular.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">💾</div>
-                <h4>Export de Alta Qualidade</h4>
-                <p>Salva em PNG sem perda de qualidade. Perfeito pra usar como avatar, wallpaper, o que for.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🪶</div>
-                <h4>Super Leve</h4>
-                <p>Só 1.7 MB. Cabe em qualquer celular, até os mais cheios.</p>
-            </div>
-        </div>
-
-        <h2>Os Perrengues do Desenvolvimento</h2>
-
-        <h3>1. Performance com Imagens Grandes</h3>
-        <p>No início, quando alguém escolhia uma foto de 12 megapixels da câmera do iPhone, o app <strong>travava</strong>. Tipo, congelava por 3-4 segundos.</p>
-
-        <p>O problema: eu tava processando a imagem no thread principal (UI thread). Rookie mistake.</p>
-
-        <p>Solução: Mover todo o processamento pesado pra background threads usando Grand Central Dispatch (GCD) e async/await.</p>
-
-        <div class="code-block">
-Task {
-    // Background thread
-    let pixelatedImage = await processImage(original)
-    
-    // Volta pro main thread pra atualizar UI
-    await MainActor.run {
-        self.resultImage = pixelatedImage
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoffeePixel — From Idea to Launch · Bruno Zayed</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-        </div>
 
-        <p>Depois disso, o app ficou butter smooth. Até com fotos gigantes.</p>
+:root {
+    --bg: #f5f5f7;
+    --surface: rgba(255,255,255,0.7);
+    --border: rgba(0,0,0,0.08);
+    --text: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --accent: #6b6bff;
+}
 
-        <h3>2. Quantização de Cores Era um Pesadelo</h3>
-        <p>Reduzir uma imagem de 16 milhões de cores pra uma paleta de 16 cores sem ficar horrível é arte + ciência.</p>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+}
 
-        <p>Tentei vários algoritmos:</p>
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+}
 
-        <ul>
-            <li><strong>K-means clustering:</strong> Agrupa cores similares. Funciona, mas é LENTO demais pra mobile.</li>
-            <li><strong>Octree quantization:</strong> Cria uma árvore de cores. Mais rápido, mas complexo de implementar.</li>
-            <li><strong>Median cut:</strong> Divide o espaço de cores recursivamente. Bom balanço de velocidade/qualidade.</li>
-        </ul>
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
 
-        <p>No final, usei uma combinação: median cut pra gerar a paleta + dithering Floyd-Steinberg pra distribuir o erro de quantização.</p>
+.logo {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+}
 
-        <p>Resultado: conversões que parecem profissionais, não aqueles pixel arts horríveis que parecem MS Paint.</p>
+.back-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+}
 
-        <h3>3. Nearest-Neighbor Scaling no iOS</h3>
-        <p>Por padrão, quando você redimensiona uma imagem no iOS, ele usa interpolação suave (Lanczos, bilinear, etc). Isso é ótimo pra fotos normais, mas PÉSSIMO pra pixel art.</p>
+.hero {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+}
 
-        <p>Precisei forçar o scaling a usar nearest-neighbor, que basicamente duplica pixels sem misturar cores.</p>
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
 
-        <div class="warning-box">
-            <strong>Gotcha técnico:</strong> CGContext tem uma propriedade chamada `interpolationQuality`. Se você setar pra `.none`, ele usa nearest-neighbor. MAS tem que setar ANTES de desenhar a imagem. Se setar depois, não funciona. Gastei 2 horas debugando isso.
-        </div>
+.hero-meta {
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
 
-        <h3>4. Localização pra 6 Idiomas</h3>
-        <p>Assim como o Limitaê, quis que o CoffeePixel fosse internacional. Traduzi pra 6 idiomas: inglês, português, francês, alemão, japonês e coreano.</p>
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem;
+}
 
-        <p>O desafio aqui foi que o app tem MUITO menos texto que o Limitaê (é mais visual), então tinha que garantir que os poucos textos que tinha estivessem perfeitos.</p>
+.intro {
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
 
-        <p>Contratei tradutores nativos pra japonês e coreano porque Google Translate é muito ruim pra nuances culturais.</p>
+h2 {
+    margin: 3rem 0 1.25rem;
+    font-size: 1.8rem;
+    letter-spacing: -0.01em;
+}
 
-        <h2>Stack Técnica Completa</h2>
+h3 {
+    margin: 2rem 0 1rem;
+    font-size: 1.3rem;
+}
 
-        <div class="tech-stack">
-            <span class="tech-tag">Swift 5.9</span>
-            <span class="tech-tag">SwiftUI</span>
-            <span class="tech-tag">Core Image</span>
-            <span class="tech-tag">UIKit</span>
-            <span class="tech-tag">Grand Central Dispatch</span>
-            <span class="tech-tag">async/await</span>
-            <span class="tech-tag">PhotosUI</span>
-            <span class="tech-tag">iOS 18.5+</span>
-        </div>
+p {
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+}
 
-        <div class="pixel-demo">
-            <div class="pixel-example">
-                <p style="margin: 0; font-size: 1.5rem; font-weight: 700;">🎮 Pixel Art Magic ✨</p>
-            </div>
-        </div>
+ul {
+    margin: 1rem 0 1.5rem 1.5rem;
+}
 
-        <h2>O Que Aprendi</h2>
+li {
+    margin-bottom: 0.6rem;
+}
 
-        <div class="lesson-box">
-            <h3>💡 Lições de Desenvolvimento</h3>
-            <ul>
-                <li><strong>Image processing é mais complexo do que parece:</strong> Parece simples até você tentar fazer bem feito. Paletas de cores, dithering, scaling... cada parte tem suas pegadinhas.</li>
-                <li><strong>Performance é crucial em apps de imagem:</strong> Usuários esperam resultados instantâneos. Se travar por 2 segundos, já deletaram o app.</li>
-                <li><strong>Menos é mais:</strong> O CoffeePixel tem só uma tela principal. Poderia ter 10 features a mais, mas decidi focar em fazer UMA coisa perfeitamente.</li>
-                <li><strong>Offline é um feature:</strong> Muitos apps de edição de imagem mandam suas fotos pra cloud pra processar. Isso é invasivo e desnecessário. Fazer tudo local foi uma decisão de design.</li>
-                <li><strong>Tamanho importa MUITO:</strong> 1.7 MB vs 50 MB de outros apps similares. Usuários agradecem quando seu app não ocupa metade do celular.</li>
-                <li><strong>Core Image é subestimado:</strong> Muita gente ignora esse framework, mas ele é poderoso demais. Aprender a usar direito vale MUITO a pena.</li>
-            </ul>
-        </div>
+.highlight {
+    color: var(--accent);
+    font-weight: 600;
+}
 
-        <h2>Números Até Agora</h2>
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">1.7MB</div>
-                <div class="stat-label">Tamanho do App</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Idiomas</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Offline</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Ads / Tracking</div>
-            </div>
-        </div>
+.card {
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.5rem;
+}
 
-        <h2>Casos de Uso Favoritos</h2>
+.card h4 {
+    margin-bottom: 0.5rem;
+}
 
-        <p>Usuários do CoffeePixel têm usado o app pra coisas bem criativas:</p>
+.card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
 
-        <ul>
-            <li>🎮 <strong>Avatares de jogos:</strong> Converter fotos em avatares pixelados pra Discord, Steam, etc</li>
-            <li>📱 <strong>Wallpapers retrô:</strong> Criar backgrounds minimalistas pixelados</li>
-            <li>🎨 <strong>Arte digital:</strong> Base pra projetos de design gráfico</li>
-            <li>👕 <strong>Estampas:</strong> Pessoal usa pra criar designs de camisetas pixel art</li>
-            <li>🖼️ <strong>Profile pics diferenciados:</strong> Foto de perfil que se destaca no feed</li>
-        </ul>
+.code {
+    background: #111;
+    color: #9ef01a;
+    padding: 1.5rem;
+    border-radius: 14px;
+    font-family: "SF Mono", monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
 
-        <h2>Roadmap Futuro</h2>
-        <p>Tenho algumas ideias pra evoluir o CoffeePixel sem perder a simplicidade:</p>
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+    gap: 1rem;
+    margin: 2.5rem 0;
+}
 
-        <ul>
-            <li>🎨 <strong>Mais paletas de cores:</strong> Inspiradas em consoles clássicos (NES, SNES, Genesis)</li>
-            <li>✏️ <strong>Editor de pixels:</strong> Pra quem quer ajustar manualmente alguns pixels</li>
-            <li>🎞️ <strong>Batch processing:</strong> Pixelizar várias fotos de uma vez</li>
-            <li>📐 <strong>Aspect ratio presets:</strong> Presets pra Instagram, Twitter, Discord, etc</li>
-            <li>🎭 <strong>Dithering patterns:</strong> Diferentes padrões de dithering (Floyd-Steinberg, Bayer, Atkinson)</li>
-            <li>💾 <strong>Export em múltiplos formatos:</strong> PNG, JPEG, GIF (animado?)</li>
-        </ul>
+.stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+}
 
-        <p>Mas vou adicionar com cuidado, um feature de cada vez, sempre testando se mantém a simplicidade do app.</p>
+.stat strong {
+    font-size: 1.8rem;
+}
 
-        <h2>Por Que "CoffeePixel"?</h2>
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
+}
 
-        <p>Várias pessoas perguntam sobre o nome. Tem duas razões:</p>
+.tag {
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+}
 
-        <p><strong>1. Coffee (Café):</strong> Porque eu literalmente tive a ideia tomando café. E porque desenvolvimento mobile é feito 80% a base de café. ☕</p>
+.cta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    margin-top: 4rem;
+}
 
-        <p><strong>2. Pixel:</strong> Óbvio, né? Mas também porque "pixel" vem de "picture element" — o elemento fundamental de uma imagem digital. E o app é sobre voltar ao básico, aos pixels fundamentais.</p>
+.cta a {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+}
 
-        <p>Juntos: CoffeePixel = <span class="highlight">a arte de transformar imagens modernas em arte pixelada, uma xícara de café por vez.</span></p>
+.primary {
+    background: var(--accent);
+    color: white;
+}
 
-        <h2>Pensamentos Finais</h2>
+.secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+}
 
-        <p>CoffeePixel foi um projeto que me ensinou muito sobre processamento de imagens, otimização de performance e design minimalista.</p>
+footer {
+    margin-top: 5rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+</style>
+</head>
 
-        <p>Mas o mais legal foi ver pessoas usando o app de formas que eu nunca imaginei. Designers criando mockups, gamers fazendo avatars, artistas usando como base pra projetos maiores.</p>
+<body>
 
-        <p>Se tem uma coisa que aprendi: <strong>um app que faz UMA coisa muito bem é melhor que um app que faz 50 coisas mediocremente.</strong></p>
+<nav>
+<div class="nav-container">
+<a class="logo" href="../index.html">Bruno Zayed</a>
+<a class="back-link" href="../index.html#blog">Back to blog</a>
+</div>
+</nav>
 
-        <p>CoffeePixel faz pixel art. E faz MUITO bem. Isso já é suficiente.</p>
+<section class="hero">
+<h1>CoffeePixel: From Idea to Launch</h1>
+<div class="hero-meta">December 2024 · 12 min read · SwiftUI & Core Image</div>
+</section>
 
-        <div class="quote-box">
-            "Simplicidade não é sobre ter menos. É sobre ter apenas o necessário." — Filosofia do CoffeePixel
-        </div>
+<div class="container">
 
-        <div class="cta-section">
-            <h3>Quer Transformar Suas Fotos em Pixel Art?</h3>
-            <p>O app está disponível gratuitamente na App Store!</p>
-            <a href="https://apps.apple.com/jp/app/coffeepixel/id6754811535?l=en-US" class="btn">🎨 Baixar na App Store</a>
-            <a href="https://github.com/zaysauro/CoffeepixelApp" class="btn btn-secondary">💻 Ver Código no GitHub</a>
-        </div>
+<div class="intro">
+Turning photos into pixel art always fascinated me.  
+But every app I found was either expensive, bloated, or filled with ads.  
+So I decided to build my own: simple, beautiful, and 100% offline.  
+Welcome to CoffeePixel.
+</div>
 
-        <p style="margin-top: 3rem; text-align: center; color: var(--text-secondary);">
-            <em>Curtiu o post? Tem dúvidas sobre Core Image ou processamento de imagens? Bora trocar ideia nas redes sociais! ☕🎨</em>
-        </p>
-    </div>
+<h2>The Initial Spark</h2>
+<p>Scrolling through Instagram, I kept seeing retro profiles — 8-bit avatars, NES-style photos, that nostalgic 80s/90s aesthetic.</p>
+<p>I wanted that look for my own photos, but existing apps were either too complex or overloaded with features I didn’t need.</p>
+<p class="highlight">Why isn’t there an app that does one thing — and does it really well?</p>
 
-    <footer>
-        <p>© 2025 Bruno Zayed • iOS Developer</p>
-        <p><a href="../index.html" style="color: var(--primary);">← Voltar pro Portfolio</a></p>
-    </footer>
+<h2>The Technical Challenge</h2>
+<p>Pixel art isn’t just lowering resolution. High-quality results require:</p>
+<ul>
+<li>Limited color palettes</li>
+<li>Smart dithering</li>
+<li>Detail preservation</li>
+<li>Crisp nearest-neighbor scaling</li>
+</ul>
+
+<h2>The Stack</h2>
+
+<h3>Core Image</h3>
+<p>Core Image is incredibly powerful, but there’s no true “pixel art” filter out of the box.</p>
+
+<div class="code">
+1. Downscale image  
+2. Color quantization  
+3. Optional dithering  
+4. Nearest-neighbor upscale  
+5. Edge sharpening
+</div>
+
+<h2>Main Features</h2>
+
+<div class="feature-grid">
+<div class="card">
+<h4>Instant Preview</h4>
+<p>Real-time updates as you adjust pixel size.</p>
+</div>
+<div class="card">
+<h4>Pixel Size Control</h4>
+<p>From subtle to full retro.</p>
+</div>
+<div class="card">
+<h4>Offline Processing</h4>
+<p>Your photos never leave your device.</p>
+</div>
+<div class="card">
+<h4>High-Quality Export</h4>
+<p>Lossless PNG output.</p>
+</div>
+</div>
+
+<h2>Tech Stack</h2>
+<div class="tech">
+<span class="tag">Swift</span>
+<span class="tag">SwiftUI</span>
+<span class="tag">Core Image</span>
+<span class="tag">UIKit</span>
+<span class="tag">async/await</span>
+<span class="tag">iOS 18+</span>
+</div>
+
+<h2>What I Learned</h2>
+<ul>
+<li>Image processing is deceptively complex</li>
+<li>Performance is everything</li>
+<li>Less features, more quality</li>
+<li>Offline is a feature</li>
+</ul>
+
+<div class="stats">
+<div class="stat"><strong>1.7MB</strong><br>App size</div>
+<div class="stat"><strong>6</strong><br>Languages</div>
+<div class="stat"><strong>100%</strong><br>Offline</div>
+<div class="stat"><strong>0</strong><br>Ads / Tracking</div>
+</div>
+
+<div class="cta">
+<h3>Try CoffeePixel</h3>
+<p>Available now on the App Store.</p>
+<a class="primary" href="https://apps.apple.com/jp/app/coffeepixel/id6754811535?l=en-US">Download</a>
+<a class="secondary" href="https://github.com/zaysauro/CoffeepixelApp">View on GitHub</a>
+</div>
+
+</div>
+
+<footer>
+© 2025 Bruno Zayed · iOS Developer
+</footer>
+
 </body>
 </html>
