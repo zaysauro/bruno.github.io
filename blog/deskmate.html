@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeskMate Organizer: A Better Way to Tidy Your Mac — Bruno Zayed</title>
+
     <style>
+        /* =====================
+           RESET & VARIABLES
+        ====================== */
         * {
             margin: 0;
             padding: 0;
@@ -17,206 +21,274 @@
             --bg: #ffffff;
             --bg-secondary: #f5f5f7;
             --text: #1d1d1f;
-            --text-secondary: #86868b;
+            --text-secondary: #6e6e73;
             --border: #d2d2d7;
             --highlight: #FF6B6B;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: var(--text);
             background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* =====================
+           NAV (MOBILE FIRST)
+        ====================== */
         nav {
             position: sticky;
             top: 0;
+            z-index: 1000;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 0;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
             font-weight: 700;
+            font-size: 1.2rem;
             color: var(--text);
-            text-decoration: none;
         }
 
         .back-link {
-            color: var(--primary);
-            text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
+        /* =====================
+           HERO (MOBILE FIRST)
+        ====================== */
         .hero-post {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             text-align: center;
             color: white;
+            padding: 3.5rem 1.5rem 3rem;
         }
 
         .post-icon {
-            font-size: 5rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .hero-post h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
         .post-meta-hero {
             display: flex;
-            gap: 2rem;
             justify-content: center;
-            font-size: 1rem;
+            gap: 1rem;
+            font-size: 0.85rem;
             opacity: 0.9;
-            margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
+        /* =====================
+           CONTENT
+        ====================== */
         .container {
-            max-width: 800px;
+            max-width: 760px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 2.5rem 1.5rem;
         }
 
         .intro-box {
             background: var(--bg-secondary);
             border-left: 4px solid var(--highlight);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0 3rem;
-            font-size: 1.125rem;
+            padding: 1.5rem;
+            border-radius: 14px;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
             color: var(--text-secondary);
         }
 
         h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 3rem 0 1.5rem;
-            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            line-height: 1.3;
         }
 
         p {
-            margin-bottom: 1.5rem;
-            font-size: 1.125rem;
-            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            color: var(--text);
         }
 
         ul {
-            margin: 1rem 0 1.5rem 2rem;
+            margin: 1rem 0 1.5rem 1.2rem;
         }
 
         li {
             margin-bottom: 0.75rem;
-            font-size: 1.125rem;
+            font-size: 1rem;
         }
 
+        /* =====================
+           CTA
+        ====================== */
         .cta-section {
             background: var(--bg-secondary);
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
             border-radius: 20px;
             text-align: center;
-            margin: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.6rem;
             background: var(--primary);
             color: white;
-            text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
-            margin: 0.5rem;
-            transition: all 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .btn:hover {
-            background: #553D7A;
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(106, 76, 147, 0.3);
         }
 
+        /* =====================
+           FOOTER
+        ====================== */
         footer {
             background: var(--bg-secondary);
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2rem 1.5rem;
             text-align: center;
+            font-size: 0.9rem;
             color: var(--text-secondary);
+            margin-top: 4rem;
+        }
+
+        /* =====================
+           DESKTOP ENHANCEMENTS
+        ====================== */
+        @media (min-width: 768px) {
+            body {
+                line-height: 1.8;
+            }
+
+            .hero-post {
+                padding: 6rem 2rem 4.5rem;
+            }
+
+            .post-icon {
+                font-size: 5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p, li {
+                font-size: 1.125rem;
+            }
+
+            .intro-box {
+                font-size: 1.125rem;
+                padding: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="../index.html" class="logo">Bruno Zayed</a>
-            <a href="../index.html#blog" class="back-link">← Back to Blog</a>
-        </div>
-    </nav>
 
-    <div class="hero-post">
-        <div class="post-icon">🗂️</div>
-        <h1>DeskMate Organizer: A Cleaner, Smarter Mac</h1>
-        <div class="post-meta-hero">
-            <span>📅 January 2026</span>
-            <span>⏱️ 8 min read</span>
-            <span>💻 macOS Productivity</span>
-        </div>
+<nav>
+    <div class="nav-container">
+        <a href="../index.html" class="logo">Bruno Zayed</a>
+        <a href="../index.html#blog" class="back-link">← Back to Blog</a>
+    </div>
+</nav>
+
+<section class="hero-post">
+    <div class="post-icon">🗂️</div>
+    <h1>DeskMate Organizer: A Cleaner, Smarter Mac</h1>
+    <div class="post-meta-hero">
+        <span>📅 January 2026</span>
+        <span>⏱️ 8 min read</span>
+        <span>💻 macOS Productivity</span>
+    </div>
+</section>
+
+<main class="container">
+
+    <div class="intro-box">
+        Your Mac should help you get things done — not hide clutter you forgot about.
+        DeskMate Organizer automatically keeps your files organized so you can focus on what really matters.
     </div>
 
-    <div class="container">
-        <div class="intro-box">
-            “Your Mac should help you get things done — not hide clutter you forgot about. DeskMate Organizer automatically tidies up your files so you can focus on what matters.”  [oai_citation:0‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)
-        </div>
+    <h2>Why a File Organizer Matters</h2>
+    <p>
+        Desktops full of screenshots, messy Downloads folders, forgotten ZIP files — digital clutter slows you down more than you think.
+        DeskMate Organizer was built to remove that friction quietly and efficiently.
+    </p>
 
-        <h2>Why a File Organizer Matters</h2>
-        <p>If your Desktop and Downloads are anything like mine used to be, they’re full of screenshots, downloads, duplicates, and random files you can’t remember. It’s distracting and slows you down.</p>
+    <h2>The Core Idea</h2>
+    <p>
+        DeskMate Organizer monitors key folders like Desktop and Downloads and automatically sorts files into clean categories such as
+        Photos, Videos, Documents, and Archives — no manual work required.
+    </p>
 
-        <p>That’s exactly the problem DeskMate Organizer aims to solve: **automatic, intelligent organization of your files without lifting a finger.**  [oai_citation:1‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</p>
+    <h2>Smart Features That Save You Time</h2>
+    <ul>
+        <li>📁 Automatic file categorization</li>
+        <li>⚡ Lightweight & fast performance</li>
+        <li>🔍 Clear progress and activity feedback</li>
+        <li>🧑‍🦽 Full accessibility support</li>
+        <li>🌑 Light & Dark Mode integration</li>
+    </ul>
 
-        <h2>The Core Idea</h2>
-        <p>Instead of manually sorting files into folders, DeskMate Organizer watches key places on your Mac — like Desktop, Downloads, and Documents — and repaints digital chaos into tidy structure: Photos, Videos, Documents, Archives, and more.  [oai_citation:2‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</p>
+    <h2>Fits Naturally Into Your Workflow</h2>
+    <p>
+        Whether you’re a student, a creator, or a professional, having an organized workspace helps keep your mind focused.
+        DeskMate Organizer works quietly in the background, keeping things tidy every day.
+    </p>
 
-        <h2>Smart Features That Save You Time</h2>
-        <ul>
-            <li>📁 **Automatic categorization** — Files get sorted into relevant folders instantly.  [oai_citation:3‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</li>
-            <li>⚡ **Fast performance** — Lightweight and efficient on macOS.  [oai_citation:4‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</li>
-            <li>🔍 **See progress & status** — A clear progress view helps you understand what’s happening.  [oai_citation:5‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</li>
-            <li>🧑‍🦽 **Accessibility support** — VoiceOver and keyboard navigation make it usable for more people.  [oai_citation:6‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</li>
-            <li>🌑 **Light & Dark Mode** — Blends seamlessly with your setup.  [oai_citation:7‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</li>
-        </ul>
-
-        <h2>How It Fits Into Your Workflow</h2>
-        <p>DeskMate Organizer isn’t just “another utility app” — it’s like having a digital assistant that keeps your workspace tidy every day. When your files are organized automatically, you spend less time searching and more time creating.  [oai_citation:8‡App Store](https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12)</p>
-
-        <p>Whether you’re a student balancing projects, a creator juggling assets, or a professional managing downloads and exports, a clean workspace helps your mind stay clean too.</p>
-
-        <div class="cta-section">
-            <h3>Get DeskMate Organizer</h3>
-            <p>Effortless file organization for macOS. Try it free today!</p>
-            <a href="https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12" class="btn">📦 Download on the Mac App Store</a>
-        </div>
-
+    <div class="cta-section">
+        <h3>Get DeskMate Organizer</h3>
+        <p>Effortless file organization for macOS.</p>
+        <a href="https://apps.apple.com/jp/app/deskmate-organizer/id6755903446?l=en-US&mt=12" class="btn">
+            Download on the Mac App Store
+        </a>
     </div>
 
-    <footer>
-        <p>© 2026 Bruno Zayed • macOS Developer & Productivity Enthusiast</p>
-        <p><a href="../index.html" style="color: var(--primary);">← Back to Portfolio</a></p>
-    </footer>
+</main>
+
+<footer>
+    © 2026 Bruno Zayed • macOS Developer  
+    <br>
+    <a href="../index.html">← Back to Portfolio</a>
+</footer>
+
 </body>
 </html>
