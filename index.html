@@ -1,528 +1,246 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruno Zayed - iOS Developer & Creator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bruno Zayed — iOS Developer & Indie Maker</title>
 
-        :root {
-            --primary: #007AFF;
-            --primary-dark: #0051D5;
-            --bg: #ffffff;
-            --bg-secondary: #f5f5f7;
-            --text: #1d1d1f;
-            --text-secondary: #86868b;
-            --border: #d2d2d7;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
+  <style>
+    :root {
+      --primary: #007aff;
+      --primary-dark: #0051d5;
+      --bg: #f5f5f7;
+      --glass: rgba(255,255,255,0.7);
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 20px 40px rgba(0,0,0,0.08);
+      --radius: 20px;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(245,245,247,0.8);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-        }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+    .logo {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
 
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    .nav-links a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+    /* HERO */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.25rem 3rem;
+      text-align: center;
+    }
 
-        /* Hero Section */
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      background: linear-gradient(135deg, var(--primary), #5856d6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), #5856d6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
+    /* SECTION */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem;
+    }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+      text-align: center;
+    }
 
-        .btn {
-            padding: 0.875rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+    }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
+    /* BLOG GRID */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
 
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px var(--shadow);
-        }
+    .post-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform .3s ease;
+    }
 
-        .btn-secondary {
-            background: var(--bg-secondary);
-            color: var(--text);
-        }
+    .post-card:hover {
+      transform: translateY(-6px);
+    }
 
-        .btn-secondary:hover {
-            background: var(--border);
-        }
+    .post-image {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: linear-gradient(135deg,#667eea,#764ba2);
+    }
 
-        /* Section Styles */
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+    .post-content {
+      padding: 1.25rem;
+    }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+    .post-tag {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: .5rem;
+      display: inline-block;
+    }
 
-        .section-subtitle {
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 1.125rem;
-        }
+    .post-title {
+      font-size: 1.3rem;
+      margin-bottom: .5rem;
+    }
 
-        /* Blog Posts Grid */
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+    .post-excerpt {
+      color: var(--text-secondary);
+      font-size: .95rem;
+    }
 
-        .post-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s;
-            text-decoration: none;
-            color: var(--text);
-            display: block;
-        }
+    /* DESKTOP */
+    @media (min-width: 768px) {
+      .posts-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-        .post-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px var(--shadow);
-            border-color: var(--primary);
-        }
+      .hero {
+        padding: 6rem 2rem 4rem;
+      }
+    }
 
-        .post-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .post-content {
-            padding: 1.5rem;
-        }
-
-        .post-tag {
-            display: inline-block;
-            background: var(--bg-secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .post-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .post-excerpt {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        /* Featured Projects */
-        .projects-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        .project-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--primary), #5856d6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            font-size: 0.875rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            font-size: 1.125rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 2rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-secondary);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero {
-                padding: 3rem 1rem;
-            }
-
-            .posts-grid,
-            .projects-showcase {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-secondary);
+      font-size: .9rem;
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">Bruno Zayed</a>
-            <ul class="nav-links">
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <section class="hero">
-        <h1>iOS Developer & Creator</h1>
-        <p>Construindo apps que misturam tecnologia e criatividade para tornar o dia a dia mais simples e agradável.</p>
-        <div class="cta-buttons">
-            <a href="#blog" class="btn btn-primary">Ver Blog</a>
-            <a href="#projects" class="btn btn-secondary">Meus Apps</a>
-        </div>
-    </section>
+<nav>
+  <div class="nav-container">
+    <a href="/" class="logo">Bruno Zayed</a>
+    <div class="nav-links">
+      <a href="#blog">Blog</a>
+      <a href="#projects">Apps</a>
+    </div>
+  </div>
+</nav>
 
-    <section id="blog">
-        <h2 class="section-title">Últimos Posts</h2>
-        <p class="section-subtitle">Histórias sobre criação de apps, desafios técnicos e aprendizados</p>
-        
-        <div class="posts-grid">
-            <a href="blog/limitae.html" class="post-card">
-                <div class="post-image">💰</div>
-                <div class="post-content">
-                    <span class="post-tag">Finance</span>
-                    <h3 class="post-title">Como Criei o Limitaê</h3>
-                    <p class="post-excerpt">A jornada de desenvolver um app de controle financeiro do zero, os desafios com SwiftUI e as lições aprendidas.</p>
-                    <div class="post-meta">
-                        <span>📅 Jan 2025</span>
-                        <span>⏱️ 8 min</span>
-                    </div>
-                </div>
-            </a>
+<section class="hero">
+  <h1>iOS Developer & Indie Maker</h1>
+  <p>Construo apps simples, privados e bem pensados — do código ao design.</p>
+</section>
 
-            <a href="blog/coffeepixel.html" class="post-card">
-                <div class="post-image">🎨</div>
-                <div class="post-content">
-                    <span class="post-tag">Design</span>
-                    <h3 class="post-title">CoffeepixelApp: Da Ideia ao Launch</h3>
-                    <p class="post-excerpt">Como transformei uma ideia maluca de converter fotos em pixel art num app publicado na App Store.</p>
-                    <div class="post-meta">
-                        <span>📅 Dez 2024</span>
-                        <span>⏱️ 10 min</span>
-                    </div>
-                </div>
-            </a>
+<section id="blog">
+  <h2 class="section-title">Blog</h2>
+  <p class="section-subtitle">Construindo apps, aprendendo em público</p>
 
-            <a href="blog/super-calculadora.html" class="post-card">
-                <div class="post-image">🔢</div>
-                <div class="post-content">
-                    <span class="post-tag">Flutter + Swift</span>
-                    <h3 class="post-title">Super Calculadora: Flutter Bridge</h3>
-                    <p class="post-excerpt">Explorando a integração entre Flutter e Swift nativo para criar uma calculadora premium com recursos avançados.</p>
-                    <div class="post-meta">
-                        <span>📅 Jan 2025</span>
-                        <span>⏱️ 12 min</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
+  <div class="posts-grid">
+    <a href="blog/limitae.html" class="post-card">
+      <div class="post-image">💰</div>
+      <div class="post-content">
+        <span class="post-tag">Finance</span>
+        <h3 class="post-title">Como Criei o Limitaê</h3>
+        <p class="post-excerpt">
+          A jornada de criar um app financeiro simples, privado e usável todos os dias.
+        </p>
+      </div>
+    </a>
 
-    <section id="projects">
-        <h2 class="section-title">Apps Publicados</h2>
-        <p class="section-subtitle">Projetos disponíveis na App Store</p>
+    <a href="blog/deskmate.html" class="post-card">
+      <div class="post-image">🗂️</div>
+      <div class="post-content">
+        <span class="post-tag">macOS</span>
+        <h3 class="post-title">DeskMate Organizer</h3>
+        <p class="post-excerpt">
+          Um organizador automático para manter seu Mac limpo sem esforço.
+        </p>
+      </div>
+    </a>
 
-        <div class="projects-showcase">
-            <div class="project-card">
-                <div class="project-icon">💰</div>
-                <h3>Limitaê</h3>
-                <p>Tracker financeiro para definir limites mensais, visualizar gastos e conquistar equilíbrio nas finanças.</p>
-                <div class="project-links">
-                    <a href="blog/limitae.html" class="project-link">Ler Post →</a>
-                    <a href="https://github.com/zaysauro/Limitae" class="project-link">GitHub →</a>
-                </div>
-            </div>
+    <a href="blog/plannerfy.html" class="post-card">
+      <div class="post-image">🗺️</div>
+      <div class="post-content">
+        <span class="post-tag">Travel</span>
+        <h3 class="post-title">Plannerfy</h3>
+        <p class="post-excerpt">
+          Planejamento de viagens feito por pessoas reais, não algoritmos.
+        </p>
+      </div>
+    </a>
+  </div>
+</section>
 
-            <div class="project-card">
-                <div class="project-icon">🎨</div>
-                <h3>CoffeepixelApp</h3>
-                <p>App minimalista para transformar fotos em pixel art 100% editável pelo usuário.</p>
-                <div class="project-links">
-                    <a href="blog/coffeepixel.html" class="project-link">Ler Post →</a>
-                    <a href="https://github.com/zaysauro/CoffeepixelApp" class="project-link">GitHub →</a>
-                </div>
-            </div>
+<footer>
+  © 2025 Bruno Zayed • Built with care ☕
+</footer>
 
-            <div class="project-card">
-                <div class="project-icon">🔢</div>
-                <h3>Super Calculadora</h3>
-                <p>Calculadora premium com Flutter UI e core Swift, incluindo histórico inteligente e notas rápidas.</p>
-                <div class="project-links">
-                    <a href="blog/super-calculadora.html" class="project-link">Ler Post →</a>
-                    <a href="#" class="project-link">Em Desenvolvimento</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="tools">
-        <h2 class="section-title">Ferramentas Interativas</h2>
-        <p class="section-subtitle">Projetos que você pode usar direto no navegador</p>
-
-        <div class="projects-showcase">
-            <div class="project-card">
-                <div class="project-icon">🧮</div>
-                <h3>Calculadora Científica</h3>
-                <p>Calculadora completa com funções trigonométricas, logaritmos e histórico de operações.</p>
-                <div class="project-links">
-                    <a href="tools/calculator.html" class="project-link">Abrir Tool →</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">⏱️</div>
-                <h3>Pomodoro Tracker</h3>
-                <p>Timer Pomodoro com estatísticas de produtividade e histórico de sessões.</p>
-                <div class="project-links">
-                    <a href="tools/pomodoro.html" class="project-link">Abrir Tool →</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">💱</div>
-                <h3>Conversor de Moedas</h3>
-                <p>Conversão de moedas em tempo real com taxas atualizadas e histórico de câmbio.</p>
-                <div class="project-links">
-                    <a href="tools/currency.html" class="project-link">Em Breve</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#tools">Tools</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Apps</h4>
-                <ul>
-                    <li><a href="blog/limitae.html">Limitaê</a></li>
-                    <li><a href="blog/coffeepixel.html">CoffeepixelApp</a></li>
-                    <li><a href="blog/super-calculadora.html">Super Calculadora</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="https://github.com/zaysauro">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/">LinkedIn</a></li>
-                    <li><a href="https://medium.com/@brunozay">Medium</a></li>
-                    <li><a href="mailto:brunozay@gmail.com">Email</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Bruno Zayed • iOS Developer • Built with ☕ and Swift</p>
-        </div>
-    </footer>
 </body>
 </html>
