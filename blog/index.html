@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — Bruno Zayed</title>
+
+  <style>
+    :root {
+      --primary: #007aff;
+      --bg: #f5f5f7;
+      --glass: rgba(255,255,255,0.65);
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 20px 40px rgba(0,0,0,0.08);
+      --radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(20px);
+      background: rgba(245,245,247,0.85);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    /* HEADER */
+    header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.25rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      margin-bottom: .75rem;
+    }
+
+    header p {
+      color: var(--text-secondary);
+    }
+
+    /* BLOG GRID */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .posts-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    .post-card {
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform .25s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .post-tag {
+      font-size: .75rem;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      letter-spacing: .04em;
+      margin-bottom: .4rem;
+      display: inline-block;
+    }
+
+    .post-title {
+      font-size: 1.3rem;
+      margin-bottom: .4rem;
+    }
+
+    .post-excerpt {
+      font-size: .95rem;
+      color: var(--text-secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: .9rem;
+      color: var(--text-secondary);
+    }
+
+    @media (min-width: 768px) {
+      .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="/" class="logo">← Bruno Zayed</a>
+  </div>
+</nav>
+
+<header>
+  <h1>Blog</h1>
+  <p>Building apps, learning in public.</p>
+</header>
+
+<section>
+  <div class="posts-grid">
+
+    <a href="limitae.html" class="post-card">
+      <span class="post-tag">Finance</span>
+      <h3 class="post-title">How I Built Limitaê</h3>
+      <p class="post-excerpt">
+        The journey of creating a simple, private finance app.
+      </p>
+    </a>
+
+    <a href="deskmate.html" class="post-card">
+      <span class="post-tag">macOS</span>
+      <h3 class="post-title">DeskMate Organizer</h3>
+      <p class="post-excerpt">
+        An automatic desktop organizer for macOS.
+      </p>
+    </a>
+
+    <a href="plannerfy.html" class="post-card">
+      <span class="post-tag">Travel</span>
+      <h3 class="post-title">Plannerfy</h3>
+      <p class="post-excerpt">
+        Travel planning made by real people.
+      </p>
+    </a>
+
+    <!-- novos posts entram aqui -->
+
+  </div>
+</section>
+
+<footer>
+  © 2025 Bruno Zayed
+</footer>
+
+</body>
+</html>
