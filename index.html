@@ -8,9 +8,9 @@
   <style>
     :root {
       --primary: #007aff;
-      --primary-dark: #0051d5;
+      --accent: #5856d6;
       --bg: #f5f5f7;
-      --glass: rgba(255,255,255,0.7);
+      --glass: rgba(255,255,255,0.65);
       --text: #1d1d1f;
       --text-secondary: #6e6e73;
       --border: rgba(0,0,0,0.08);
@@ -31,8 +31,12 @@
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+    }
+
     /* NAV */
-    nav {
+    header {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -44,7 +48,7 @@
     .nav-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: 1rem 1.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -52,29 +56,32 @@
 
     .logo {
       font-weight: 700;
-      text-decoration: none;
-      color: var(--text);
       font-size: 1.1rem;
+      text-decoration: none;
     }
 
     .nav-links a {
-      margin-left: 1rem;
+      margin-left: 1.25rem;
       text-decoration: none;
       color: var(--text-secondary);
       font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
     }
 
     /* HERO */
     .hero {
       max-width: 900px;
       margin: 0 auto;
-      padding: 4rem 1.25rem 3rem;
+      padding: 5rem 1.25rem 4rem;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
-      background: linear-gradient(135deg, var(--primary), #5856d6);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
@@ -83,21 +90,21 @@
     .hero p {
       color: var(--text-secondary);
       font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
+      max-width: 620px;
+      margin: 0 auto;
     }
 
     /* SECTION */
-    section {
+    main section {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 3rem 1.25rem;
+      padding: 3.5rem 1.25rem;
     }
 
     .section-title {
       font-size: 2rem;
-      margin-bottom: .5rem;
       text-align: center;
+      margin-bottom: .5rem;
     }
 
     .section-subtitle {
@@ -106,7 +113,7 @@
       margin-bottom: 2.5rem;
     }
 
-    /* BLOG GRID */
+    /* BLOG */
     .posts-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -120,9 +127,8 @@
       border-radius: var(--radius);
       overflow: hidden;
       text-decoration: none;
-      color: inherit;
       box-shadow: var(--shadow);
-      transition: transform .3s ease;
+      transition: transform .25s ease;
     }
 
     .post-card:hover {
@@ -139,77 +145,96 @@
     }
 
     .post-content {
-      padding: 1.25rem;
+      padding: 1.4rem;
     }
 
     .post-tag {
       font-size: .75rem;
       font-weight: 600;
       color: var(--primary);
-      margin-bottom: .5rem;
       display: inline-block;
+      margin-bottom: .5rem;
     }
 
     .post-title {
       font-size: 1.3rem;
-      margin-bottom: .5rem;
+      margin-bottom: .4rem;
     }
 
     .post-excerpt {
-      color: var(--text-secondary);
       font-size: .95rem;
+      color: var(--text-secondary);
     }
 
-    /* DESKTOP */
-    @media (min-width: 768px) {
-      .posts-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    /* CONTACT */
+    .contact-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
 
-      .hero {
-        padding: 6rem 2rem 4rem;
-      }
+    .contact-links a {
+      display: inline-block;
+      margin: .75rem 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--primary);
     }
 
     /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem 1rem;
-      color: var(--text-secondary);
       font-size: .9rem;
+      color: var(--text-secondary);
+    }
+
+    @media (min-width: 768px) {
+      .posts-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   </style>
 </head>
 
 <body>
 
-<nav>
+<header>
   <div class="nav-container">
     <a href="/" class="logo">Bruno Zayed</a>
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="#blog">Blog</a>
-      <a href="#projects">Apps</a>
-    </div>
+      <a href="/apps/">Apps</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-</nav>
+</header>
 
 <section class="hero">
   <h1>iOS Developer & Indie Maker</h1>
-  <p>Construo apps simples, privados e bem pensados — do código ao design.</p>
+  <p>Building thoughtful, private and well-crafted apps — from code to design.</p>
 </section>
+
+<main>
 
 <section id="blog">
   <h2 class="section-title">Blog</h2>
-  <p class="section-subtitle">Construindo apps, aprendendo em público</p>
+  <p class="section-subtitle">Building apps and learning in public</p>
 
   <div class="posts-grid">
     <a href="blog/limitae.html" class="post-card">
       <div class="post-image">💰</div>
       <div class="post-content">
         <span class="post-tag">Finance</span>
-        <h3 class="post-title">Como Criei o Limitaê</h3>
+        <h3 class="post-title">How I Built Limitaê</h3>
         <p class="post-excerpt">
-          A jornada de criar um app financeiro simples, privado e usável todos os dias.
+          The journey of creating a simple, private finance app.
         </p>
       </div>
     </a>
@@ -220,7 +245,7 @@
         <span class="post-tag">macOS</span>
         <h3 class="post-title">DeskMate Organizer</h3>
         <p class="post-excerpt">
-          Um organizador automático para manter seu Mac limpo sem esforço.
+          A macOS app that keeps your desktop clean automatically.
         </p>
       </div>
     </a>
@@ -231,12 +256,28 @@
         <span class="post-tag">Travel</span>
         <h3 class="post-title">Plannerfy</h3>
         <p class="post-excerpt">
-          Planejamento de viagens feito por pessoas reais, não algoritmos.
+          Travel planning made by people, not algorithms.
         </p>
       </div>
     </a>
   </div>
 </section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p class="section-subtitle">Let’s build something useful</p>
+
+  <div class="contact-card">
+    <p>You can find me here:</p>
+    <div class="contact-links">
+      <a href="https://github.com/zaysaura" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="mailto:brunozayed@email.com">Email</a>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <footer>
   © 2025 Bruno Zayed • Built with care ☕
