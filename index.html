@@ -18,110 +18,54 @@
       --radius: 20px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+    a { color: inherit; text-decoration:none; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
+    /* NAV */
     header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(20px);
-      background: rgba(245,245,247,.8);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
+      position: sticky; top:0; z-index:100;
+      backdrop-filter: blur(20px); background: rgba(245,245,247,0.8);
+      border-bottom:1px solid var(--border);
     }
+    .nav-container { max-width:1100px; margin:0 auto; padding:1rem 1.25rem; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-weight:700; font-size:1.1rem; }
+    .nav-links a { margin-left:1.25rem; color:var(--text-secondary); font-weight:500; }
+    .nav-links a:hover { color:var(--primary); }
 
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 1.25rem;
-      display: flex;
-      justify-content: space-between;
-    }
+    /* HERO */
+    .hero { max-width:900px; margin:0 auto; padding:5rem 1.25rem 4rem; text-align:center; }
+    .hero h1 { font-size:clamp(2.4rem,6vw,3.6rem); background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
+    .hero p { color:var(--text-secondary); font-size:1.1rem; max-width:620px; margin:0 auto; }
 
-    .nav-links a {
-      margin-left: 1.25rem;
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
+    main section { max-width:1100px; margin:0 auto; padding:3.5rem 1.25rem; }
 
-    .hero {
-      text-align: center;
-      padding: 5rem 1.25rem 4rem;
-    }
+    .section-title { font-size:2rem; text-align:center; margin-bottom:.5rem; }
+    .section-subtitle { text-align:center; color:var(--text-secondary); margin-bottom:2.5rem; }
 
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    main section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3.5rem 1.25rem;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: .5rem;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: var(--text-secondary);
-      margin-bottom: 2.5rem;
-    }
-
-    .posts-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
+    /* BLOG */
+    .posts-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; }
+    @media(min-width:768px){ .posts-grid { grid-template-columns: repeat(3,1fr); } }
 
     .post-card {
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform .25s ease;
+      background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border);
+      border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+      transition:transform .25s ease;
     }
+    .post-card:hover { transform:translateY(-6px); }
 
-    .post-card:hover { transform: translateY(-6px); }
+    .post-image { height:160px; display:flex; align-items:center; justify-content:center; font-size:3rem; background:linear-gradient(135deg,#667eea,#764ba2); }
+    .post-content { padding:1.4rem; }
+    .post-tag { font-size:.75rem; font-weight:600; color:var(--primary); display:inline-block; margin-bottom:.5rem; }
+    .post-title { font-size:1.3rem; margin-bottom:.4rem; }
+    .post-excerpt { font-size:.95rem; color:var(--text-secondary); }
 
-    .post-image {
-      height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      background: rgba(0,0,0,.03);
-    }
+    /* CONTACT */
+    .contact-card { background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border); border-radius:var(--radius); padding:2rem; max-width:720px; margin:0 auto; text-align:center; box-shadow:var(--shadow); }
+    .contact-links a { display:inline-block; margin:.75rem 1rem; font-weight:600; color:var(--primary); }
 
-    .post-content { padding: 1.4rem; }
-
-    .post-tag {
-      font-size: .75rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--text-secondary);
-    }
+    /* FOOTER */
+    footer { text-align:center; padding:3rem 1rem; font-size:.9rem; color:var(--text-secondary); }
   </style>
 </head>
 
@@ -129,7 +73,7 @@
 
 <header>
   <div class="nav-container">
-    <strong>Bruno Zayed</strong>
+    <a href="/" class="logo">Bruno Zayed</a>
     <nav class="nav-links">
       <a href="#blog">Blog</a>
       <a href="/apps/">Apps</a>
@@ -140,7 +84,7 @@
 
 <section class="hero">
   <h1>iOS Developer & Indie Maker</h1>
-  <p>Building thoughtful, private and well-crafted apps.</p>
+  <p>Building thoughtful, private and well-crafted apps — from code to design.</p>
 </section>
 
 <main>
@@ -148,16 +92,24 @@
 <section id="blog">
   <h2 class="section-title">Blog</h2>
   <p class="section-subtitle">Building apps and learning in public</p>
-  <div class="posts-grid" id="postsGrid"></div>
+
+  <div class="posts-grid" id="postsGrid">
+    <!-- Blog posts will be injected here -->
+  </div>
 </section>
 
 <section id="contact">
   <h2 class="section-title">Contact</h2>
   <p class="section-subtitle">Let’s build something useful</p>
-  <p style="text-align:center">
-    <a href="https://github.com/zaysaura">GitHub</a> ·
-    <a href="mailto:brunozayed@email.com">Email</a>
-  </p>
+
+  <div class="contact-card">
+    <p>You can find me here:</p>
+    <div class="contact-links">
+      <a href="https://github.com/zaysaura" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="mailto:brunozayed@email.com">Email</a>
+    </div>
+  </div>
 </section>
 
 </main>
@@ -167,23 +119,29 @@
 </footer>
 
 <script>
-  fetch("blog/posts.json")
+  // Load all blog posts dynamically
+  fetch("./blog/posts.json")
     .then(res => res.json())
     .then(posts => {
       const grid = document.getElementById("postsGrid");
-
       posts.forEach(post => {
-        grid.innerHTML += `
-          <a href="${post.url}" class="post-card">
-            <div class="post-image">${post.icon}</div>
-            <div class="post-content">
-              <span class="post-tag">${post.tag}</span>
-              <h3>${post.title}</h3>
-              <p>${post.excerpt}</p>
-            </div>
-          </a>
+        const card = document.createElement("a");
+        card.href = post.url;
+        card.className = "post-card";
+        card.innerHTML = `
+          <div class="post-image">${post.icon}</div>
+          <div class="post-content">
+            <span class="post-tag">${post.tag}</span>
+            <h3 class="post-title">${post.title}</h3>
+            <p class="post-excerpt">${post.excerpt}</p>
+          </div>
         `;
+        grid.appendChild(card);
       });
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("postsGrid").innerHTML = "<p style='text-align:center;color:#999'>Failed to load blog posts.</p>";
     });
 </script>
 
