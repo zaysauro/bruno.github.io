@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Apps Showcase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="apps.css" />
+</head>
+
+<body>
+
+<header>
+  <h1>Web Apps</h1>
+  <p class="subtitle">
+    Small focused web apps built to explore UX, logic and modern Web APIs.
+  </p>
+</header>
+
+<main class="apps-layout">
+
+  <!-- App Menu -->
+  <aside class="apps-menu">
+    <button class="app-btn active" data-app="calculator">
+      🧮 Calculator
+    </button>
+
+    <button class="app-btn" data-app="pomodoro">
+      ⏱ Pomodoro
+    </button>
+
+    <button class="app-btn" data-app="qrcode">
+      🔳 QR Generator
+    </button>
+
+    <button class="app-btn" data-app="typing">
+      ⌨️ Typing Game
+    </button>
+  </aside>
+
+  <!-- App Viewer -->
+  <section class="app-viewer glass">
+    <iframe
+      id="appFrame"
+      src="apps/calculator/index.html"
+      loading="lazy"
+    ></iframe>
+
+    <div class="app-readme" id="appReadme">
+      <h2>Calculator</h2>
+      <p>
+        A focused calculator app built to explore UI feedback,
+        keyboard interaction and internal state management without frameworks.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<script src="apps.js"></script>
+</body>
+</html>
