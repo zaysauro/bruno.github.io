@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plannerfy: Organize Your Life — Bruno Zayed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6A4C93;
+            --accent: #FF6B6B;
+            --bg: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text: #1d1d1f;
+            --text-secondary: #6b6b72;
+            --border: #d2d2d7;
+            --success: #34C759;
+            --highlight: #8AC926;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero-post {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .post-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-post h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .post-meta-hero {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0 3rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .quote-box {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            border-left: 4px solid var(--highlight);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Bruno Zayed</a>
+            <a href="../index.html#blog" class="back-link">← Back to Blog</a>
+        </div>
+    </nav>
+
+    <div class="hero-post">
+        <div class="post-icon">🗓️</div>
+        <h1>Plannerfy: Organize Your Days, Live Your Best Life</h1>
+        <div class="post-meta-hero">
+            <span>📅 January 2026</span>
+            <span>⏱️ 10 min read</span>
+            <span>📱 SwiftUI + Productivity</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            “Life gets messy when your mind is juggling tasks, events, goals, and ideas. I built Plannerfy to bring calm to that chaos — a personal planner that feels intuitive, beautiful, and effortless to use every single day.”
+        </div>
+
+        <h2>The Problem: Modern Planning is Overwhelming</h2>
+        <p>Calendars, reminders, notes, habit trackers… Productivity apps are everywhere — but none felt just right. Some were bloated. Others were too rigid. Most forced me to adapt my life to their rules, not the other way around.</p>
+
+        <p>I wanted something simple yet powerful — a digital planner that actually worked like my brain does.</p>
+
+        <h2>What Plannerfy Aims To Be</h2>
+        <div class="quote-box">
+            “Plannerfy is your digital planning companion — it organizes your schedule without distracting you from living it.”
+        </div>
+
+        <p>It had to be:</p>
+
+        <ul>
+            <li>✅ Clean & Focused — zero clutter, maximum clarity</li>
+            <li>✅ Flexible — adapt to your rhythm, not ours</li>
+            <li>✅ Elegant — a delight to use, every single day</li>
+            <li>✅ Private — all your data stays on your device</li>
+            <li>✅ Fast — no friction between intent and action</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📆</div>
+                <h4>Daily Planner</h4>
+                <p>Organize your day with intuitive time blocks and quick shortcuts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h4>Notes & Ideas</h4>
+                <p>Capture thoughts, plans, and inspirations without losing context.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h4>Goals Tracker</h4>
+                <p>Set long-term goals and track progress with ease.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h4>Reminders & Alerts</h4>
+                <p>Never forget a task — schedule reminders that fit your tempo.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>Weekly & Monthly Views</h4>
+                <p>See the big picture or zoom into today — whatever you need.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h4>100% Private</h4>
+                <p>No accounts, no cloud tracking — all your data stays with you.</p>
+            </div>
+        </div>
+
+        <h2>Why Plannerfy Changed My Workflow</h2>
+        <p>Before Plannerfy, my tasks felt like loose strings everywhere — floating in my head, in notes apps, in calendar apps… it was too messy. With Plannerfy, everything finally lives in a single, elegant space that actually helps me stay present.</p>
+
+        <div class="quote-box">
+            “Planning shouldn’t feel like work — it should feel like clarity.”
+        </div>
+
+        <h2>Behind the Scenes</h2>
+        <p>Plannerfy is built with SwiftUI and optimized for performance on iOS. Its layout adapts fluidly to screen size, and interactions feel fast and natural. Design choices were driven by a simple philosophy: remove obstacles so focus can flourish.</p>
+
+        <h2>Download Plannerfy</h2>
+        <p>If you’re looking to bring calm to your daily planning, give Plannerfy a try. It’s available now on the App Store.</p>
+
+        <div class="cta-section">
+            <a href="https://apps.apple.com/jp/app/plannerfy/id6756053402?l=en-US" class="btn">📲 Download Plannerfy</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Bruno Zayed • iOS Developer & Designer</p>
+        <p><a href="../index.html" style="color: var(--primary);">← Back to Portfolio</a></p>
+    </footer>
+</body>
+</html>
