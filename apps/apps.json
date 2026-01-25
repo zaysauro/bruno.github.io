@@ -1,0 +1,14 @@
+[
+  {
+    "id": "calculator",
+    "name": "Glass Calculator",
+    "description": "A minimal calculator with a glassmorphism UI.",
+    "path": "calculator/"
+  },
+  {
+    "id": "pomodoro",
+    "name": "Pomodoro Timer",
+    "description": "Focus timer based on the Pomodoro technique.",
+    "path": "pomodoro/"
+  }
+]
