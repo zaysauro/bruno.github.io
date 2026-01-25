@@ -6,230 +6,294 @@
 <title>Collectify Pro — For Every Collector · Bruno Zayed</title>
 
 <style>
+/* ---------- RESET ---------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* ---------- TOKENS ---------- */
 :root {
-    --bg: #f5f5f7;
-    --surface: rgba(255,255,255,0.75);
-    --border: rgba(0,0,0,0.08);
-    --text: #1d1d1f;
-    --text-secondary: #6e6e73;
-    --accent: #6b6bff;
+  --bg: #f5f5f7;
+  --surface: rgba(255,255,255,0.75);
+  --border: rgba(0,0,0,0.08);
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --accent: #6b6bff;
 }
 
+/* ---------- BASE (MOBILE FIRST) ---------- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.75;
-}
-
-nav {
-    position: sticky;
-    top: 0;
-    background: rgba(255,255,255,0.6);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    z-index: 100;
-}
-
-.nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.logo {
-    font-weight: 600;
-    text-decoration: none;
-    color: var(--text);
-}
-
-.back-link {
-    text-decoration: none;
-    color: var(--text-secondary);
-}
-
-.hero {
-    padding: 6rem 2rem 4rem;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-.hero-meta {
-    margin-top: 1.5rem;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.container {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.intro {
-    background: var(--surface);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-    color: var(--text-secondary);
-}
-
-h2 {
-    margin: 3rem 0 1.25rem;
-    font-size: 1.8rem;
-    letter-spacing: -0.01em;
-}
-
-h3 {
-    margin: 2rem 0 1rem;
-    font-size: 1.3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
 }
 
 p {
-    margin-bottom: 1.25rem;
-    font-size: 1.05rem;
+  font-size: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 ul {
-    margin: 1rem 0 1.5rem 1.5rem;
+  margin: 0.8rem 0 1.2rem 1.25rem;
 }
 
 li {
-    margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
+h1, h2, h3, h4 {
+  line-height: 1.25;
+}
+
+/* ---------- NAV ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding: 3.5rem 1.25rem 2.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero-meta {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ---------- LAYOUT ---------- */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+/* ---------- INTRO ---------- */
+.intro {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* ---------- HEADINGS ---------- */
+h2 {
+  margin: 2.5rem 0 1.1rem;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  margin: 2rem 0 0.8rem;
+  font-size: 1.25rem;
+}
+
+/* ---------- UTIL ---------- */
 .highlight {
-    color: var(--accent);
-    font-weight: 600;
+  color: var(--accent);
+  font-weight: 600;
 }
 
+/* ---------- GRID ---------- */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.8rem 0;
 }
 
 .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
 }
 
 .card h4 {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .card p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
+/* ---------- QUOTE ---------- */
 .quote {
-    background: var(--surface);
-    border-left: 4px solid var(--accent);
-    border-radius: 14px;
-    padding: 1.5rem;
-    margin: 2rem 0;
-    font-style: italic;
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin: 1.8rem 0;
+  font-style: italic;
 }
 
-.code {
-    background: #111;
-    color: #9ef01a;
-    padding: 1.5rem;
-    border-radius: 14px;
-    font-family: "SF Mono", monospace;
-    font-size: 0.9rem;
-    overflow-x: auto;
-    margin: 1.5rem 0;
-}
-
+/* ---------- STATS ---------- */
 .stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-    gap: 1rem;
-    margin: 2.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 2.5rem 0;
 }
 
 .stat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem;
-    text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  text-align: center;
 }
 
 .stat strong {
-    font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
+/* ---------- TECH TAGS ---------- */
 .tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
 }
 
 .tag {
-    padding: 0.4rem 0.8rem;
-    border-radius: 999px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
 }
 
+/* ---------- CTA ---------- */
 .cta {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: center;
-    margin-top: 4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta h3 {
+  margin-bottom: 0.75rem;
 }
 
 .cta a {
-    display: inline-block;
-    margin: 0.5rem;
-    padding: 0.9rem 1.8rem;
-    border-radius: 999px;
-    text-decoration: none;
-    font-weight: 600;
+  display: inline-block;
+  margin: 0.4rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .primary {
-    background: var(--accent);
-    color: white;
+  background: var(--accent);
+  color: white;
 }
 
 .secondary {
-    border: 1px solid var(--border);
-    color: var(--text);
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
+/* ---------- FOOTER ---------- */
 footer {
-    margin-top: 5rem;
+  margin-top: 4rem;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* ---------- DESKTOP ENHANCEMENTS ---------- */
+@media (min-width: 768px) {
+
+  body {
+    line-height: 1.75;
+  }
+
+  p, li {
+    font-size: 1.05rem;
+  }
+
+  .hero {
+    padding: 6rem 2rem 4rem;
+  }
+
+  .hero-meta {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 2.5rem 2rem;
+  }
+
+  .intro {
     padding: 2rem;
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card {
+    transition: 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  }
 }
 </style>
 </head>
@@ -237,112 +301,112 @@ footer {
 <body>
 
 <nav>
-<div class="nav-container">
-<a class="logo" href="../index.html">Bruno Zayed</a>
-<a class="back-link" href="../index.html#blog">Back to blog</a>
-</div>
+  <div class="nav-container">
+    <a class="logo" href="../index.html">Bruno Zayed</a>
+    <a class="back-link" href="../index.html#blog">Back to blog</a>
+  </div>
 </nav>
 
 <section class="hero">
-<h1>Collectify Pro: For Every Collector</h1>
-<div class="hero-meta">January 2025 · 14 min read · SwiftUI & Barcode APIs</div>
+  <h1>Collectify Pro: For Every Collector</h1>
+  <div class="hero-meta">January 2025 · 14 min read · SwiftUI & Barcode APIs</div>
 </section>
 
-<div class="container">
+<main class="container">
 
-<div class="intro">
-I’m a video game collector. After years of buying games, I had no clear idea what my collection was actually worth — or which items were the real gems.  
-So I built Collectify Pro. Not just for me, but for every collector.
-</div>
+  <div class="intro">
+    I’m a video game collector. After years of buying games, I had no clear idea what my collection was actually worth — or which items were the real gems.  
+    So I built Collectify Pro. Not just for me, but for every collector.
+  </div>
 
-<h2>The Origin</h2>
-<p>At some point, I looked at my shelves and asked myself:</p>
+  <h2>The Origin</h2>
+  <p>At some point, I looked at my shelves and asked myself:</p>
 
-<div class="quote">
-“How much did I actually spend on all this — and what is it worth today?”
-</div>
+  <div class="quote">
+    “How much did I actually spend on all this — and what is it worth today?”
+  </div>
 
-<p>I tried spreadsheets. I tried existing apps. None of them stuck.</p>
+  <p>I tried spreadsheets. I tried existing apps. None of them stuck.</p>
 
-<h2>The Core Idea</h2>
-<p class="highlight">
-A universal, private, and free app to catalog anything you collect.
-</p>
+  <h2>The Core Idea</h2>
+  <p class="highlight">
+    A universal, private, and free app to catalog anything you collect.
+  </p>
 
-<ul>
-<li>Works for any type of collection</li>
-<li>No subscriptions</li>
-<li>No accounts</li>
-<li>All data stored locally</li>
-<li>Barcode scanning to save time</li>
-</ul>
+  <ul>
+    <li>Works for any type of collection</li>
+    <li>No subscriptions</li>
+    <li>No accounts</li>
+    <li>All data stored locally</li>
+    <li>Barcode scanning to save time</li>
+  </ul>
 
-<h2>Key Features</h2>
+  <h2>Key Features</h2>
 
-<div class="grid">
-<div class="card">
-<h4>Barcode Scanning</h4>
-<p>Instantly fetch product data from large barcode databases.</p>
-</div>
-<div class="card">
-<h4>Manual Entry</h4>
-<p>Full control over photos, notes, condition, and metadata.</p>
-</div>
-<div class="card">
-<h4>Value Tracking</h4>
-<p>Track purchase price versus current market value.</p>
-</div>
-<div class="card">
-<h4>Rarity Detection</h4>
-<p>Automatically highlights your most valuable items.</p>
-</div>
-<div class="card">
-<h4>Export</h4>
-<p>CSV, PDF, and Excel exports for insurance and backups.</p>
-</div>
-<div class="card">
-<h4>Privacy First</h4>
-<p>No cloud sync, no accounts, no data collection.</p>
-</div>
-</div>
+  <div class="grid">
+    <div class="card">
+      <h4>Barcode Scanning</h4>
+      <p>Instantly fetch product data from large barcode databases.</p>
+    </div>
+    <div class="card">
+      <h4>Manual Entry</h4>
+      <p>Full control over photos, notes, condition, and metadata.</p>
+    </div>
+    <div class="card">
+      <h4>Value Tracking</h4>
+      <p>Track purchase price versus current market value.</p>
+    </div>
+    <div class="card">
+      <h4>Rarity Detection</h4>
+      <p>Automatically highlights your most valuable items.</p>
+    </div>
+    <div class="card">
+      <h4>Export</h4>
+      <p>CSV, PDF, and Excel exports for insurance and backups.</p>
+    </div>
+    <div class="card">
+      <h4>Privacy First</h4>
+      <p>No cloud sync, no accounts, no data collection.</p>
+    </div>
+  </div>
 
-<h2>Tech Stack</h2>
-<div class="tech">
-<span class="tag">Swift</span>
-<span class="tag">SwiftUI</span>
-<span class="tag">Core Data</span>
-<span class="tag">Vision</span>
-<span class="tag">Barcode APIs</span>
-<span class="tag">PDFKit</span>
-<span class="tag">iOS 18+</span>
-</div>
+  <h2>Tech Stack</h2>
+  <div class="tech">
+    <span class="tag">Swift</span>
+    <span class="tag">SwiftUI</span>
+    <span class="tag">Core Data</span>
+    <span class="tag">Vision</span>
+    <span class="tag">Barcode APIs</span>
+    <span class="tag">PDFKit</span>
+    <span class="tag">iOS 18+</span>
+  </div>
 
-<h2>What I Learned</h2>
-<ul>
-<li>Build something you personally need</li>
-<li>One killer feature beats ten average ones</li>
-<li>Privacy is a real selling point</li>
-<li>Data export builds user trust</li>
-</ul>
+  <h2>What I Learned</h2>
+  <ul>
+    <li>Build something you personally need</li>
+    <li>One killer feature beats ten average ones</li>
+    <li>Privacy is a real selling point</li>
+    <li>Data export builds user trust</li>
+  </ul>
 
-<div class="stats">
-<div class="stat"><strong>2.3MB</strong><br>App size</div>
-<div class="stat"><strong>FREE</strong><br>No subscriptions</div>
-<div class="stat"><strong>6</strong><br>Languages</div>
-<div class="stat"><strong>5.0★</strong><br>User rating</div>
-</div>
+  <div class="stats">
+    <div class="stat"><strong>2.3MB</strong><br>App size</div>
+    <div class="stat"><strong>FREE</strong><br>No subscriptions</div>
+    <div class="stat"><strong>6</strong><br>Languages</div>
+    <div class="stat"><strong>5.0★</strong><br>User rating</div>
+  </div>
 
-<div class="cta">
-<h3>Try Collectify Pro</h3>
-<p>Available now on the App Store.</p>
-<a class="primary" href="#">Download</a>
-<a class="secondary" href="../index.html">Back to portfolio</a>
-</div>
+  <div class="cta">
+    <h3>Try Collectify Pro</h3>
+    <p>Available now on the App Store.</p>
+    <a class="primary" href="#">Download</a>
+    <a class="secondary" href="../index.html">Back to portfolio</a>
+  </div>
 
-</div>
+</main>
 
 <footer>
-© 2025 Bruno Zayed · iOS Developer
+  © 2025 Bruno Zayed · iOS Developer
 </footer>
 
 </body>
