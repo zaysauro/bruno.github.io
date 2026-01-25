@@ -1,398 +1,236 @@
-:root {
-  --bg: #0d1117;
-  --text: #e6edf3;
-  --accent: #00ff7f;
-  --card: #161b22;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bruno.dev — Apps & Notes</title>
 
-.light {
-  --bg: #f5f5f5;
-  --text: #111;
-  --accent: #009966;
-  --card: #ffffff;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --accent: #00ff7f;
+      --card: rgba(22, 27, 34, 0.75);
+      --glass-border: rgba(255,255,255,0.08);
+      --blur: blur(14px);
+    }
 
-body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  transition: background 0.4s ease, color 0.4s ease;
-  padding: 20px;
-}
+    body.light {
+      --bg: #f4f6f5;
+      --text: #0d1117;
+      --accent: #009966;
+      --card: rgba(255,255,255,0.75);
+      --glass-border: rgba(0,0,0,0.08);
+    }
 
-/* Header */
-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-header h1 {
-  font-size: 2.8rem;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
 
-.subtitle {
-  font-size: 1rem;
-  color: var(--accent);
-  max-width: 700px;
-  margin: 0 auto 20px auto;
-  line-height: 1.5;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  align-items: center;
-}
+    /* ===== HEADER ===== */
+    header {
+      text-align: center;
+      margin: 40px 0 60px;
+    }
 
-nav a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 500;
-  transition: color 0.3s;
-}
+    header h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      letter-spacing: 0.5px;
+    }
 
-nav a:hover {
-  color: var(--accent);
-}
+    .subtitle {
+      color: var(--accent);
+      margin-top: 10px;
+      font-size: 0.95rem;
+      max-width: 680px;
+      margin-inline: auto;
+    }
 
-/* Theme Toggle */
-#themeToggle {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
+    nav {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-#themeToggle:hover svg {
-  transform: rotate(25deg);
-  color: var(--text);
-}
+    nav a {
+      font-weight: 500;
+      opacity: 0.85;
+    }
 
-/* Sections */
-section {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 30px;
-  background: var(--card);
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,255,127,0.15);
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 1s ease, transform 1s ease;
-}
+    nav a:hover {
+      color: var(--accent);
+    }
 
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* ===== MAIN ===== */
+    main {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      gap: 40px;
+    }
 
-section h2 {
-  color: var(--accent);
-  margin-bottom: 18px;
-  font-size: 1.4rem;
-}
+    section {
+      background: var(--card);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
 
-.feature-list {
-  margin: 20px 0 30px;
-  display: grid;
-  gap: 10px;
-  list-style: none;
-}
+    section h2 {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
 
-.feature-list li {
-  background: rgba(0, 255, 127, 0.05);
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 255, 127, 0.18);
-  font-size: 0.95rem;
-}
+    /* ===== BLOG GRID ===== */
+    .blog-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
 
-.super-calc-grid {
-  display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  margin-bottom: 30px;
-}
+    .blog-card {
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid rgba(0,255,127,0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-.calc-device {
-  background: radial-gradient(circle at 20% 20%, rgba(0, 255, 127, 0.2), rgba(0, 0, 0, 0.8));
-  border-radius: 24px;
-  padding: 24px;
-  border: 1px solid rgba(0, 255, 127, 0.25);
-  box-shadow: 0 15px 35px rgba(0, 255, 127, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0,255,127,0.18);
+    }
 
-.calc-status {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-}
+    .blog-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
 
-.badge {
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 255, 127, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.75rem;
-}
+    .blog-card p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 14px;
+    }
 
-.badge.ghost {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.6);
-}
+    .read-more {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
 
-.calc-display {
-  background: #010b0b;
-  border-radius: 18px;
-  padding: 18px;
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  box-shadow: inset 0 0 25px rgba(0, 255, 127, 0.25);
-}
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      margin: 80px 0 30px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
 
-.calc-equation {
-  font-family: "Space Mono", "SFMono-Regular", monospace;
-  font-size: 0.95rem;
-  color: rgba(0, 255, 127, 0.85);
-  text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
-}
+    /* ===== MOBILE ===== */
+    @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
 
-.calc-result {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #eafff5;
-  text-shadow: 0 0 15px rgba(0, 255, 127, 0.9);
-}
+      section {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
 
-.calc-keypad {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
+  <header>
+    <h1>Bruno.dev</h1>
+    <p class="subtitle">
+      Indie apps, experiments and notes about building simple software with care.
+    </p>
 
-.calc-keypad button {
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
-  border-radius: 14px;
-  padding: 14px 0;
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
+    <nav>
+      <a href="#blog">Blog</a>
+      <a href="#apps">Apps</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-.calc-keypad button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
-}
+  <main>
 
-.calc-keypad button.accent {
-  background: linear-gradient(135deg, #00ff7f, #0fb);
-  color: #04130d;
-}
+    <!-- BLOG -->
+    <section id="blog">
+      <h2>Blog</h2>
 
-.calc-keypad button.ghost {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
+      <div class="blog-grid">
+        <!-- Post 1 -->
+        <a class="blog-card" href="plannerfy.html">
+          <h3>Plannerfy — A simple travel planner</h3>
+          <p>
+            Why I built Plannerfy and how I think about lightweight planning tools.
+          </p>
+          <span class="read-more">Read →</span>
+        </a>
 
-.calc-companion {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
+        <!-- Post 2 -->
+        <a class="blog-card" href="deskmate.html">
+          <h3>DeskMate Organizer</h3>
+          <p>
+            A small macOS utility to keep tasks, notes and focus in one place.
+          </p>
+          <span class="read-more">Read →</span>
+        </a>
+      </div>
+    </section>
 
-.calc-notes,
-.calc-history {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 18px;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 255, 127, 0.15);
-  box-shadow: inset 0 0 12px rgba(0, 255, 127, 0.08);
-}
+    <!-- APPS -->
+    <section id="apps">
+      <h2>Apps</h2>
+      <p style="opacity:0.85; font-size:0.95rem;">
+        I like building small, focused tools that solve my own problems first.
+      </p>
+    </section>
 
-.calc-notes h3,
-.calc-history h3 {
-  margin-bottom: 10px;
-}
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="font-size:0.95rem;">
+        You can reach me via GitHub or the App Store pages linked above.
+      </p>
+    </section>
 
-.calc-notes p {
-  font-size: 0.9rem;
-  margin-bottom: 6px;
-}
+  </main>
 
-.calc-history ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+  <footer>
+    © 2026 — Built slowly, shipped intentionally.
+  </footer>
 
-.calc-history li {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  padding: 10px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.calc-history .label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.calc-code {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(0, 255, 127, 0.2);
-  border-radius: 14px;
-  padding: 20px;
-}
-
-.calc-code pre {
-  background: #050909;
-  padding: 14px;
-  border-radius: 12px;
-  overflow-x: auto;
-  font-size: 0.85rem;
-}
-
-.code-hint {
-  font-size: 0.85rem;
-  margin-top: 12px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-body.light .calc-device {
-  background: linear-gradient(180deg, #ffffff, #dfffee);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
-}
-
-body.light .calc-display {
-  background: #f0fffb;
-  box-shadow: inset 0 0 25px rgba(0, 255, 127, 0.15);
-}
-
-body.light .calc-keypad button {
-  background: rgba(0, 0, 0, 0.05);
-  color: #043124;
-}
-
-@media (max-width: 600px) {
-  .calc-keypad {
-    gap: 8px;
-  }
-
-  .calc-keypad button {
-    padding: 12px 0;
-  }
-}
-
-/* Projects */
-.project h3 {
-  color: var(--accent);
-}
-
-.project a {
-  text-decoration: none;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 6px 12px;
-  border-radius: 6px;
-  display: inline-block;
-  margin-top: 8px;
-  transition: background 0.3s, color 0.3s;
-}
-
-.project a:hover {
-  background: var(--accent);
-  color: #000;
-}
-
-/* Repo list */
-.repo-list {
-  display: grid;
-  gap: 20px;
-}
-
-.repo {
-  background: rgba(255,255,255,0.03);
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid rgba(0,255,127,0.1);
-}
-
-.repo a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* Contact */
-.contact-links a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.contact-links a:hover {
-  color: var(--text);
-}
-
-/* Social Icons */
-.social-icons {
-  position: fixed;
-  top: 18px;
-  right: 25px;
-  display: flex;
-  gap: 18px;
-  z-index: 100;
-}
-
-.social-icons svg {
-  color: var(--accent);
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.social-icons svg:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  color: var(--text);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  margin-top: 60px;
-  font-size: 0.9rem;
-  color: #777;
-}
+</body>
+</html>
