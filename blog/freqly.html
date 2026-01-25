@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freqly: Learning Japanese the Right Way - Bruno Zayed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #E63946;
+            --accent: #F77F00;
+            --bg: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text: #1d1d1f;
+            --text-secondary: #86868b;
+            --border: #d2d2d7;
+            --success: #34C759;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero-post {
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .post-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-post h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .post-meta-hero {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0 3rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .quote-box {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            border-left: 4px solid var(--accent);
+        }
+
+        .example-box {
+            background: #FFF9F0;
+            border: 2px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .example-box h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .word-example {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .word-en {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .word-jp {
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .lesson-box {
+            background: linear-gradient(135deg, #34C759, #30D158);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+
+        .lesson-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .lesson-box ul {
+            margin-left: 1.5rem;
+        }
+
+        .lesson-box li {
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        .japan-section {
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            color: #1d1d1f;
+        }
+
+        .japan-section h3 {
+            margin-top: 0;
+            color: #1d1d1f;
+        }
+
+        .cta-section {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h3 {
+            margin: 0 0 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #D62828;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+            box-shadow: none;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero-post {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .post-meta-hero {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Bruno Zayed</a>
+            <a href="../index.html#blog" class="back-link">← Back to Blog</a>
+        </div>
+    </nav>
+
+    <div class="hero-post">
+        <div class="post-icon">🇯🇵</div>
+        <h1>Freqly: Learning Japanese the Right Way</h1>
+        <div class="post-meta-hero">
+            <span>📅 January 2025</span>
+            <span>⏱️ 15 min read</span>
+            <span>💻 SwiftUI + Core Data</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            "After 10 years living in Japan, I realized that most Japanese language courses teach you all the wrong words first. So I built Freqly — a frequency-based dictionary that teaches you the Japanese words people actually use in real life."
+        </div>
+
+        <h2>The Problem: Learning Words You'll Never Use</h2>
+        <p>Picture this: You move to Japan. You're excited to learn Japanese. You download a popular language app or buy a textbook. Lesson 1 teaches you:</p>
+
+        <div class="example-box">
+            <h4>❌ What Most Courses Teach First:</h4>
+            <div class="word-example">
+                <span class="word-en">Elephant</span>
+                <span class="word-jp">象 (ぞう)</span>
+            </div>
+            <div class="word-example">
+                <span class="word-en">Airplane</span>
+                <span class="word-jp">飛行機 (ひこうき)</span>
+            </div>
+            <div class="word-example">
+                <span class="word-en">Mountain</span>
+                <span class="word-jp">山 (やま)</span>
+            </div>
+        </div>
+
+        <p>Here's the thing: <strong>I lived in Japan for 10 years</strong>, and I can count on one hand how many times I needed to say "elephant" in conversation.</p>
+
+        <p>Meanwhile, words I used <em>every single day</em> — like "actually" (実は), "probably" (多分), "seems like" (そうです) — were buried in Lesson 47 or never taught at all.</p>
+
+        <p>This drove me insane.</p>
+
+        <h2>10 Years in Japan: What I Actually Learned</h2>
+
+        <div class="japan-section">
+            <h3>🏯 My Journey in Japan</h3>
+            <p>I moved to Japan in my early twenties. I thought I'd be fluent in 6 months. Spoiler: I wasn't.</p>
+            
+            <p>The first year was brutal. I'd study for hours using traditional methods, memorizing kanji for "giraffe" and "telescope" while struggling to order at restaurants or explain simple things at work.</p>
+
+            <p>Then something clicked: <span class="highlight">The Japanese I heard every day was completely different from what my textbooks taught.</span></p>
+
+            <p>People weren't talking about elephants and mountains. They were using practical words like:</p>
+        </div>
+
+        <div class="example-box">
+            <h4>✅ Words I Actually Used Daily:</h4>
+            <div class="word-example">
+                <span class="word-en">Thing / Stuff</span>
+                <span class="word-jp">もの</span>
+            </div>
+            <div class="word-example">
+                <span class="word-en">Person</span>
+                <span class="word-jp">人 (ひと)</span>
+            </div>
+            <div class="word-example">
+                <span class="word-en">To say / To think</span>
+                <span class="word-jp">言う (いう)</span>
+            </div>
+            <div class="word-example">
+                <span class="word-en">To do / To make</span>
+                <span class="word-jp">する</span>
+            </div>
+            <div class="word-example">
+                <span class="word-en">Good / Fine</span>
+                <span class="word-jp">いい</span>
+            </div>
+        </div>
+
+        <p>These simple, high-frequency words made up probably 70% of daily conversations. But they were scattered across different lessons, with no priority or focus.</p>
+
+        <h2>The Science Behind Frequency-Based Learning</h2>
+
+        <p>After years of frustration, I discovered something called <strong>frequency-based learning</strong>.</p>
+
+        <p>The concept is simple but powerful: <span class="highlight">In any language, a small number of words account for the vast majority of everyday communication.</span></p>
+
+        <p>Research shows that:</p>
+
+        <ul>
+            <li><strong>The top 100 most common words</strong> account for ~50% of all written and spoken language</li>
+            <li><strong>The top 1,000 words</strong> cover ~80% of everyday conversation</li>
+            <li><strong>The top 3,000 words</strong> let you understand ~95% of most contexts</li>
+        </ul>
+
+        <p>This is universal across languages — including Japanese.</p>
+
+        <p>So why the hell were language courses teaching me "giraffe" (a word that appears maybe once in 100,000 sentences) before "thing" (which appears in almost every sentence)?</p>
+
+        <p><strong>It made no sense.</strong></p>
+
+        <h2>Building Freqly: My Solution</h2>
+
+        <p>I wanted an app that did one thing perfectly: <span class="highlight">Teach Japanese vocabulary in order of actual importance.</span></p>
+
+        <p>Not alphabetically. Not by category. Not by some textbook author's arbitrary decision. By <strong>frequency</strong> — how often words actually appear in real Japanese.</p>
+
+        <h3>The Research Phase</h3>
+
+        <p>I spent weeks compiling frequency data from multiple sources:</p>
+
+        <ul>
+            <li><strong>Japanese newspapers</strong> (Asahi, Yomiuri, etc.)</li>
+            <li><strong>Books and novels</strong> (both modern and classic literature)</li>
+            <li><strong>TV shows and movies</strong> (conversational Japanese)</li>
+            <li><strong>Social media</strong> (Twitter/X, blogs, forums)</li>
+            <li><strong>Academic corpora</strong> (JLPT word lists, university research)</li>
+        </ul>
+
+        <p>I cross-referenced everything to create a master list ranked by frequency. The words that appeared most often across <em>all</em> these sources rose to the top.</p>
+
+        <p>The result? A dictionary where <strong>Word #1 is literally the most useful word in Japanese</strong>, and it gets progressively more specialized as you go down.</p>
+
+        <h2>Core Features</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>Frequency-Ranked Dictionary</h4>
+                <p>Every word is ranked by how often it actually appears in real Japanese. Start with #1, work your way down.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h4>Instant Search</h4>
+                <p>Search in English or Japanese (hiragana, katakana, or romaji). Find any word instantly.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h4>Full Kana Readings</h4>
+                <p>Every word shows hiragana/katakana readings. No guessing pronunciation.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h4>Favorites System</h4>
+                <p>Bookmark words you want to review. Build your personal study list.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📴</div>
+                <h4>100% Offline</h4>
+                <p>Perfect for commutes, flights, or anywhere without internet. All data stored locally.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h4>Zero Distractions</h4>
+                <p>No ads, no gamification, no streaks. Just clean, focused learning.</p>
+            </div>
+        </div>
+
+        <h2>The Technical Challenges</h2>
+
+        <h3>1. Massive Data in a Tiny Package</h3>
+
+        <p>The app contains thousands of words with English translations, Japanese readings, and frequency rankings. That's a LOT of data.</p>
+
+        <p>Challenge: How do you fit all this into a 3.2 MB app?</p>
+
+        <p>Solution: I used Core Data with aggressive optimization:</p>
+
+        <ul>
+            <li><strong>Compressed text encoding</strong> — stripped unnecessary metadata</li>
+            <li><strong>Indexed searches</strong> — for instant lookup without bloat</li>
+            <li><strong>Lazy loading</strong> — only load what's visible on screen</li>
+            <li><strong>Binary storage</strong> — more efficient than JSON/XML</li>
+        </ul>
+
+        <p>Result: All the data, silky smooth performance, tiny file size.</p>
+
+        <h3>2. Multi-Script Search</h3>
+
+        <p>Japanese has three writing systems: hiragana, katakana, and kanji. Plus, learners might search using romaji (English letters).</p>
+
+        <p>The app needed to handle searches like:</p>
+
+        <ul>
+            <li>"person" → finds 人 (ひと)</li>
+            <li>"hito" → finds 人 (ひと)</li>
+            <li>"ひと" → finds 人 (ひと)</li>
+            <li>"人" → finds 人 (ひと)</li>
+        </ul>
+
+        <p>All four searches should return the same result, instantly.</p>
+
+        <p>I built a custom search algorithm that:</p>
+
+        <ul>
+            <li>Normalizes input (converts romaji to hiragana)</li>
+            <li>Searches across multiple fields simultaneously</li>
+            <li>Ranks results by relevance</li>
+            <li>Uses Core Data predicates for speed</li>
+        </ul>
+
+        <h3>3. SwiftUI List Performance</h3>
+
+        <p>Initially, scrolling through thousands of words was choppy. SwiftUI Lists can struggle with large datasets if you're not careful.</p>
+
+        <p>The fix:</p>
+
+        <ul>
+            <li>Used <code>LazyVStack</code> instead of regular <code>VStack</code></li>
+            <li>Implemented pagination (load 50 words at a time)</li>
+            <li>Added <code>@FetchRequest</code> batching in Core Data</li>
+            <li>Optimized cell reuse</li>
+        </ul>
+
+        <p>Now it scrolls like butter, even with 10,000+ words.</p>
+
+        <h2>Tech Stack</h2>
+
+        <div class="tech-stack">
+            <span class="tech-tag">Swift 5.9</span>
+            <span class="tech-tag">SwiftUI</span>
+            <span class="tech-tag">Core Data</span>
+            <span class="tech-tag">Combine</span>
+            <span class="tech-tag">Natural Language Processing</span>
+            <span class="tech-tag">iOS 18.5+</span>
+        </div>
+
+        <h2>What I Learned</h2>
+
+        <div class="lesson-box">
+            <h3>💡 Development Lessons</h3>
+            <ul>
+                <li><strong>Simplicity is a feature:</strong> Freqly does ONE thing. No flashcards, no games, no social features. Just a ranked dictionary. That focus is what makes it useful.</li>
+                <li><strong>Data quality > Data quantity:</strong> Spent more time curating and validating frequency rankings than coding. The data IS the product.</li>
+                <li><strong>Offline-first matters:</strong> Many Japanese learners are tourists or commuters. Internet isn't always available. Offline support isn't optional.</li>
+                <li><strong>Performance at scale:</strong> Handling thousands of searchable entries taught me a lot about database optimization and efficient SwiftUI.</li>
+                <li><strong>Cultural understanding matters:</strong> Living in Japan for 10 years gave me insights no textbook could. I know what words matter because I lived it.</li>
+            </ul>
+        </div>
+
+        <h2>Real-World Impact</h2>
+
+        <p>The most rewarding part has been hearing from other learners who had the same frustrations I did.</p>
+
+        <p>One user messaged me: <em>"I've been studying Japanese for 2 years and just realized I learned 'rhinoceros' before 'probably.' Your app fixed my entire approach."</em></p>
+
+        <p>Another: <em>"I'm preparing for JLPT N3 and Freqly helped me identify exactly which vocabulary gaps I had. Passed with room to spare."</em></p>
+
+        <p>That's the power of frequency-based learning. You focus on what actually matters.</p>
+
+        <h2>Stats So Far</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">3.2MB</div>
+                <div class="stat-label">App Size</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">High-Frequency Words</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Offline</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Ads / Tracking</div>
+            </div>
+        </div>
+
+        <h2>Future Plans</h2>
+
+        <p>I want to keep Freqly simple, but there are a few features I'm considering:</p>
+
+        <ul>
+            <li>📝 <strong>Example sentences:</strong> Show each word used in context</li>
+            <li>🎧 <strong>Audio pronunciations:</strong> Native speaker recordings</li>
+            <li>📊 <strong>Progress tracking:</strong> See how many high-frequency words you know</li>
+            <li>🎯 <strong>JLPT level indicators:</strong> Mark which words appear on which test level</li>
+            <li>🔤 <strong>Kanji breakdown:</strong> Show component radicals and meanings</li>
+            <li>📱 <strong>Widget support:</strong> "Word of the day" on your home screen</li>
+        </ul>
+
+        <p>But only if they enhance the core experience without adding bloat.</p>
+
+        <h2>Why "Freqly"?</h2>
+
+        <p>The name is a play on "frequency" + "frequently."</p>
+
+        <p>It's about learning the words you'll use <strong>frequently</strong> by studying them in order of <strong>frequency</strong>.</p>
+
+        <p>Simple, direct, no nonsense — just like the app.</p>
+
+        <h2>Final Thoughts</h2>
+
+        <p>Living in Japan for a decade taught me that language learning isn't about memorizing everything. It's about <strong>prioritizing what matters</strong>.</p>
+
+        <p>You don't need to know 10,000 words to have a conversation. You need to know the <em>right</em> 1,000 words.</p>
+
+        <p>Freqly is my attempt to give learners what I wish I had when I first moved to Japan: <span class="highlight">a clear, efficient path to actually useful Japanese.</span></p>
+
+        <p>No fluff. No wasted time. Just the words that matter, in the order they matter.</p>
+
+        <div class="quote-box">
+            "Language learning is a marathon, not a sprint. But if you're going to run, at least run in the right direction." — Philosophy behind Freqly
+        </div>
+
+        <div class="cta-section">
+            <h3>Ready to Learn Japanese Efficiently?</h3>
+            <p>Freqly is available on the App Store!</p>
+            <a href="https://apps.apple.com/jp/app/freqly/id6755034777?l=en-US" class="btn">🇯🇵 Download on App Store</a>
+            <a href="../index.html#blog" class="btn btn-secondary">📚 Read More Posts</a>
+        </div>
+
+        <p style="margin-top: 3rem; text-align: center; color: var(--text-secondary);">
+            <em>Studying Japanese? Have questions about frequency-based learning or life in Japan? Let's connect on social media!</em>
+        </p>
+    </div>
+
+    <footer>
+        <p>© 2025 Bruno Zayed • iOS Developer</p>
+        <p><a href="../index.html" style="color: var(--primary);">← Back to Portfolio</a></p>
+    </footer>
+</body>
+</html>
