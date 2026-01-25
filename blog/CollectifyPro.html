@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collectify Pro: For Every Collector - Bruno Zayed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6A4C93;
+            --accent: #8AC926;
+            --bg: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text: #1d1d1f;
+            --text-secondary: #86868b;
+            --border: #d2d2d7;
+            --success: #34C759;
+            --gold: #FFD700;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero-post {
+            background: linear-gradient(135deg, #6A4C93 0%, #8AC926 100%);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .post-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-post h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .post-meta-hero {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro-box {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0 3rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .quote-box {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            border-left: 4px solid var(--accent);
+        }
+
+        .collection-showcase {
+            background: linear-gradient(135deg, #F0F0F0, #E0E0E0);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+
+        .collection-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-name {
+            font-weight: 600;
+        }
+
+        .item-value {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .rare-badge {
+            background: var(--gold);
+            color: #1d1d1f;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .lesson-box {
+            background: linear-gradient(135deg, #34C759, #30D158);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+        }
+
+        .lesson-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .lesson-box ul {
+            margin-left: 1.5rem;
+        }
+
+        .lesson-box li {
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        .barcode-demo {
+            background: white;
+            border: 3px dashed var(--primary);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .barcode-visual {
+            font-size: 3rem;
+            margin: 1rem 0;
+        }
+
+        .value-tracker {
+            background: linear-gradient(135deg, #FFE66D, #FF6B6B);
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            color: #1d1d1f;
+        }
+
+        .value-tracker h3 {
+            color: #1d1d1f;
+            margin-top: 0;
+        }
+
+        .cta-section {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h3 {
+            margin: 0 0 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #553D7A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(106, 76, 147, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+            box-shadow: none;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero-post {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .post-meta-hero {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Bruno Zayed</a>
+            <a href="../index.html#blog" class="back-link">← Back to Blog</a>
+        </div>
+    </nav>
+
+    <div class="hero-post">
+        <div class="post-icon">🎮</div>
+        <h1>Collectify Pro: My Favorite App</h1>
+        <div class="post-meta-hero">
+            <span>📅 January 2025</span>
+            <span>⏱️ 14 min read</span>
+            <span>💻 SwiftUI + Barcode API</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            "I'm a video game collector. After years of buying games, I had no idea what my collection was actually worth or which games were the rare gems. So I built Collectify Pro — not just for me, but for every collector out there. Games, vinyl, CDs, whatever you collect, this app has you covered."
+        </div>
+
+        <h2>The Origin: A Collector's Dilemma</h2>
+        <p>Let me paint you a picture: I have shelves full of video games. SNES cartridges, PlayStation classics, retro imports from Japan, limited editions... you name it.</p>
+
+        <p>One day, I looked at my collection and thought: <span class="highlight">"How much did I actually spend on all this? And what's it worth now?"</span></p>
+
+        <p>I had no clue. Some games I bought for $5 at a garage sale might be worth $200 now. Others I paid full price for might be worthless. I had no systematic way to track it.</p>
+
+        <p>I tried spreadsheets. Too tedious. I tried existing collection apps. They were either:</p>
+
+        <ul>
+            <li><strong>Too expensive</strong> — $10/month subscriptions for basic features</li>
+            <li><strong>Too complicated</strong> — designed for professional archivists, not hobbyists</li>
+            <li><strong>Too limited</strong> — only for specific types of collections (just games, or just books)</li>
+            <li><strong>Privacy nightmares</strong> — wanted to upload my collection to "the cloud" (no thanks)</li>
+        </ul>
+
+        <p>So I did what any developer would do: <strong>I built my own.</strong></p>
+
+        <h2>The Core Idea</h2>
+
+        <p>Collectify Pro started as a simple question:</p>
+
+        <div class="quote-box">
+            "What if there was an app that let you catalog ANYTHING you collect, track what you paid vs. what it's worth now, and automatically highlight your most valuable items?"
+        </div>
+
+        <p>I wanted it to be:</p>
+
+        <ul>
+            <li>✅ <strong>Universal</strong> — work for games, vinyl, CDs, books, trading cards, anything</li>
+            <li>✅ <strong>Free</strong> — collecting is expensive enough without paying for an app</li>
+            <li>✅ <strong>Private</strong> — all data stays on your device</li>
+            <li>✅ <strong>Smart</strong> — use barcode scanning to auto-fill product info</li>
+            <li>✅ <strong>Insightful</strong> — show which items gained/lost value over time</li>
+        </ul>
+
+        <p>Most importantly, I wanted it to feel like <strong>browsing your own personal museum</strong>, not managing a database.</p>
+
+        <h2>Key Features That Make It Special</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h4>Barcode Scanner</h4>
+                <p>Scan any barcode and instantly pull product details from a massive API database of thousands of items.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✍️</div>
+                <h4>Manual Entry</h4>
+                <p>Add custom items with photos, notes, condition, purchase date — anything you want to track.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h4>Value Tracking</h4>
+                <p>Record what you paid vs. current market value. See your collection's worth at a glance.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h4>Rarity Highlights</h4>
+                <p>Automatically flag expensive and rare items. Know which pieces are the crown jewels.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📁</div>
+                <h4>Custom Categories</h4>
+                <p>Organize by platform, genre, era, condition — however makes sense to you.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>Statistics Dashboard</h4>
+                <p>Total items, total value, value per category, most valuable items — all in one view.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📤</div>
+                <h4>Export Options</h4>
+                <p>Export your collection as CSV, PDF, or Excel for insurance, appraisal, or just backup.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h4>100% Private</h4>
+                <p>Everything stored locally. No account required, no cloud sync, no data selling.</p>
+            </div>
+        </div>
+
+        <h2>The Barcode Magic</h2>
+
+        <p>This was the feature I'm most proud of. Let me explain how it works.</p>
+
+        <h3>The Problem</h3>
+        <p>Manually entering every item in a collection is TEDIOUS. You have to type the name, look up details, add images... it takes forever.</p>
+
+        <p>Most collectors give up after adding 10-20 items because it's too much work.</p>
+
+        <h3>The Solution: Barcode API Integration</h3>
+        <p>I integrated with a product database API that has <strong>thousands of barcodes</strong> already indexed — games, CDs, vinyl, books, electronics, you name it.</p>
+
+        <div class="barcode-demo">
+            <div class="barcode-visual">📱 📷 | | | | | | | | | |</div>
+            <p><strong>How it works:</strong></p>
+            <p>1. Scan the barcode with your phone camera</p>
+            <p>2. App queries the API database</p>
+            <p>3. Product details auto-fill (name, image, year, publisher)</p>
+            <p>4. You just add your personal notes and value</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">Adding an item: 5 seconds instead of 5 minutes.</p>
+        </div>
+
+        <p>This single feature transformed the app from "nice idea" to "actually usable."</p>
+
+        <p>Now I can catalog my entire game collection in an afternoon instead of a week.</p>
+
+        <h2>Value Tracking: The Investment Perspective</h2>
+
+        <div class="value-tracker">
+            <h3>💵 Paid vs. Current Value</h3>
+            <p>This is where things get interesting.</p>
+            
+            <p>When you add an item, you can record:</p>
+            <ul style="color: #1d1d1f;">
+                <li><strong>Purchase price</strong> — what you actually paid</li>
+                <li><strong>Purchase date</strong> — when you bought it</li>
+                <li><strong>Current value</strong> — what it's worth today (update manually or via market data)</li>
+            </ul>
+
+            <p>The app automatically calculates:</p>
+            <ul style="color: #1d1d1f;">
+                <li>📈 Items that <strong>gained value</strong></li>
+                <li>📉 Items that <strong>lost value</strong></li>
+                <li>💎 Your most valuable items</li>
+                <li>💰 Total collection worth</li>
+                <li>📊 Value distribution by category</li>
+            </ul>
+        </div>
+
+        <h3>Real Example from My Collection:</h3>
+
+        <div class="collection-showcase">
+            <div class="collection-item">
+                <span class="item-name">🎮 Chrono Trigger (SNES)</span>
+                <span class="item-value">$25 → $180 <span class="rare-badge">⭐ RARE</span></span>
+            </div>
+            <div class="collection-item">
+                <span class="item-name">🎮 Final Fantasy VII (PS1)</span>
+                <span class="item-value">$50 → $40</span>
+            </div>
+            <div class="collection-item">
+                <span class="item-name">🎮 Earthbound (SNES)</span>
+                <span class="item-value">$15 → $350 <span class="rare-badge">⭐ RARE</span></span>
+            </div>
+            <div class="collection-item">
+                <span class="item-name">🎮 Pokemon Red (Game Boy)</span>
+                <span class="item-value">$30 → $65</span>
+            </div>
+        </div>
+
+        <p>Seeing this data was eye-opening. Games I bought as a kid for pocket change are now worth serious money. Others I thought were valuable... not so much.</p>
+
+        <p>The <strong>rarity highlights</strong> automatically flag items above a certain value threshold (you set it). So when you're scrolling through your collection, you immediately see which items are worth protecting and insuring.</p>
+
+        <h2>Technical Challenges</h2>
+
+        <h3>1. Barcode API Integration</h3>
+        <p>Finding a good barcode API was harder than I expected. Many are:</p>
+
+        <ul>
+            <li><strong>Limited</strong> — only cover US products or specific categories</li>
+            <li><strong>Expensive</strong> — charge per lookup (not sustainable for a free app)</li>
+            <li><strong>Slow</strong> — take 3-5 seconds to return results</li>
+            <li><strong>Unreliable</strong> — missing data, wrong images, outdated info</li>
+        </ul>
+
+        <p>I ended up combining multiple APIs with a fallback system:</p>
+
+        <ul>
+            <li>Primary API for fast, common items</li>
+            <li>Secondary API for rare/international items</li>
+            <li>Manual entry fallback if neither works</li>
+        </ul>
+
+        <p>The app tries APIs in sequence until it finds a match, all happening in under 2 seconds.</p>
+
+        <h3>2. Photo Management at Scale</h3>
+        <p>Users can add photos to each item. If someone has 500+ items, that's potentially 500+ photos stored on device.</p>
+
+        <p>Challenge: How do you store high-quality images without bloating the app to gigabytes?</p>
+
+        <p>Solution:</p>
+
+        <ul>
+            <li><strong>Automatic compression</strong> — reduce image size while maintaining quality</li>
+            <li><strong>Thumbnail generation</strong> — store small previews for list views</li>
+            <li><strong>Lazy loading</strong> — only load full-res images when viewing details</li>
+            <li><strong>HEIC format support</strong> — iOS's efficient image format</li>
+        </ul>
+
+        <p>Result: A collection with 500 items and photos takes up about 150MB instead of 2GB.</p>
+
+        <h3>3. Export Functionality</h3>
+        <p>This was surprisingly complex. Users wanted to export their collections for:</p>
+
+        <ul>
+            <li>Insurance documentation</li>
+            <li>Appraisals</li>
+            <li>Sharing with other collectors</li>
+            <li>Backup purposes</li>
+        </ul>
+
+        <p>I built three export formats:</p>
+
+        <ul>
+            <li><strong>CSV</strong> — for spreadsheet nerds (includes all data fields)</li>
+            <li><strong>PDF</strong> — professional-looking document with photos</li>
+            <li><strong>Excel (.xlsx)</strong> — formatted workbook with charts and summaries</li>
+        </ul>
+
+        <p>Each format required custom generation logic. The PDF export alone took a week to get right — formatting tables, embedding images, handling page breaks...</p>
+
+        <h3>4. Smart Rarity Detection</h3>
+        <p>The app automatically highlights rare/valuable items, but how does it know what's "rare"?</p>
+
+        <p>I implemented a smart algorithm:</p>
+
+        <ul>
+            <li>User sets a "high value" threshold (e.g., $100+)</li>
+            <li>App flags items above that threshold</li>
+            <li>Top 10% most valuable items get special badges</li>
+            <li>Items with biggest value gains get growth indicators</li>
+        </ul>
+
+        <p>But here's the clever part: the threshold is <strong>dynamic</strong>. If your entire collection is high-value (like rare coin collectors), the app adjusts the threshold upward so you're not seeing "rare" badges on everything.</p>
+
+        <h2>Tech Stack</h2>
+
+        <div class="tech-stack">
+            <span class="tech-tag">Swift 5.9</span>
+            <span class="tech-tag">SwiftUI</span>
+            <span class="tech-tag">Core Data</span>
+            <span class="tech-tag">Vision Framework</span>
+            <span class="tech-tag">Barcode Scanner</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">PDFKit</span>
+            <span class="tech-tag">CSV Export</span>
+            <span class="tech-tag">iOS 18.5+</span>
+        </div>
+
+        <h2>What I Learned</h2>
+
+        <div class="lesson-box">
+            <h3>💡 Development Lessons</h3>
+            <ul>
+                <li><strong>Build for yourself first:</strong> I made this because I needed it. That genuine use case kept me motivated and focused on what actually matters.</li>
+                <li><strong>Free doesn't mean cheap:</strong> Making Collectify Pro free was intentional. Collectors already spend money on their hobby — they shouldn't have to pay for basic organization tools.</li>
+                <li><strong>Barcode scanning is a game-changer:</strong> One feature that makes tedious work trivial is worth more than 10 "nice to have" features.</li>
+                <li><strong>Data export is critical:</strong> People need to trust that their data isn't locked in. Export functionality builds that trust.</li>
+                <li><strong>Universal design is hard but worth it:</strong> Making it work for ANY collection type (not just games) required careful abstraction, but it opened up the market massively.</li>
+                <li><strong>Privacy sells:</strong> "No account required, all local storage" was a huge selling point for collectors who value their privacy.</li>
+            </ul>
+        </div>
+
+        <h2>User Stories That Made It Worth It</h2>
+
+        <p>The feedback has been incredible:</p>
+
+        <p><strong>A vinyl collector wrote:</strong> <em>"I've been collecting records for 30 years. I tried Excel, I tried notebooks, nothing stuck. Collectify Pro's barcode scanner let me catalog 500 records in a weekend. Game changer."</em></p>
+
+        <p><strong>A trading card collector:</strong> <em>"Found out I had a card worth $400 that I bought for $5. Your value tracking feature literally paid for my next month's rent."</em></p>
+
+        <p><strong>An insurance claim:</strong> <em>"My house was broken into. Thanks to Collectify Pro's PDF export, I had a complete inventory with photos and values for the insurance company. Got fully compensated."</em></p>
+
+        <p>That last one hit different. The app actually helped someone in a real emergency. That's when I knew this was more than just a side project.</p>
+
+        <h2>Stats So Far</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">2.3MB</div>
+                <div class="stat-label">App Size</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">FREE</div>
+                <div class="stat-label">Cost</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Languages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5.0⭐</div>
+                <div class="stat-label">Rating</div>
+            </div>
+        </div>
+
+        <h2>What's Next</h2>
+
+        <p>I have some exciting features planned:</p>
+
+        <ul>
+            <li>🔍 <strong>Price tracking integration:</strong> Automatically update market values from eBay/PriceCharting</li>
+            <li>📱 <strong>iCloud sync (optional):</strong> For users who want cross-device access</li>
+            <li>🎯 <strong>Wishlist feature:</strong> Track items you want to acquire</li>
+            <li>📊 <strong>Advanced analytics:</strong> ROI tracking, collection growth over time</li>
+            <li>🤝 <strong>Collection sharing:</strong> Share your collection with other collectors (privacy-first)</li>
+            <li>🏷️ <strong>Tag system:</strong> Tag items with custom labels (signed, mint condition, etc.)</li>
+            <li>📸 <strong>Multiple photos per item:</strong> Front, back, condition shots</li>
+            <li>🌐 <strong>Community market data:</strong> Aggregate value data from users (opt-in, anonymous)</li>
+        </ul>
+
+        <p>But I'm adding features carefully. The app's strength is its simplicity — I don't want to ruin that.</p>
+
+        <h2>Why Collectify Pro is My Favorite</h2>
+
+        <p>Of all the apps I've built, this one is the most personal.</p>
+
+        <p>It started as a solution to my own problem. It evolved into a tool for an entire community of collectors. And it continues to surprise me with creative use cases I never imagined.</p>
+
+        <p>People use it for:</p>
+
+        <ul>
+            <li>🎮 Video game collections (obviously)</li>
+            <li>📀 Vinyl and CD collections</li>
+            <li>📚 Book libraries</li>
+            <li>🃏 Trading card collections (Pokemon, Magic, sports cards)</li>
+            <li>🍷 Wine cellars</li>
+            <li>👟 Sneaker collections</li>
+            <li>🎸 Musical instrument inventories</li>
+            <li>🎨 Art collections</li>
+            <li>⌚ Watch collections</li>
+            <li>🏛️ Museum catalog management</li>
+        </ul>
+
+        <p>Each of these use cases validated the core idea: <span class="highlight">a universal, simple, powerful collection management tool that respects your privacy and doesn't cost a fortune.</span></p>
+
+        <h2>Final Thoughts</h2>
+
+        <p>If you
