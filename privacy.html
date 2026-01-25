@@ -1,284 +1,202 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Bruno Zayed</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Bruno Zayed</title>
 
-        :root {
-            --primary: #007AFF;
-            --bg: #ffffff;
-            --bg-secondary: #f5f5f7;
-            --text: #1d1d1f;
-            --text-secondary: #86868b;
-            --border: #d2d2d7;
-        }
+  <style>
+    :root {
+      --primary: #007aff;
+      --bg: #f5f5f7;
+      --glass: rgba(255,255,255,0.7);
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 20px 40px rgba(0,0,0,0.08);
+      --radius: 20px;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: var(--text);
-            background: var(--bg);
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(245,245,247,0.8);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-        }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .back-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+    .back-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
+    /* PAGE */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem;
+    }
 
-        .meta {
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1rem;
-        }
+    .page-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+    }
 
-        h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin: 3rem 0 1rem;
-            color: var(--text);
-        }
+    h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-bottom: .5rem;
+    }
 
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem;
-            color: var(--text);
-        }
+    .meta {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-size: .95rem;
+    }
 
-        p {
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
+    h2 {
+      font-size: 1.6rem;
+      margin: 3rem 0 1rem;
+    }
 
-        ul {
-            margin: 1rem 0 1.5rem 2rem;
-        }
+    h3 {
+      font-size: 1.2rem;
+      margin: 2rem 0 1rem;
+    }
 
-        li {
-            margin-bottom: 0.5rem;
-        }
+    p {
+      margin-bottom: 1.25rem;
+    }
 
-        .highlight-box {
-            background: var(--bg-secondary);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
+    ul {
+      margin: 1rem 0 1.5rem 1.25rem;
+    }
 
-        .contact-section {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 3rem;
-        }
+    li {
+      margin-bottom: .5rem;
+    }
 
-        .contact-section h3 {
-            margin-top: 0;
-        }
+    /* GLASS CALLOUTS */
+    .highlight-box {
+      background: rgba(0,122,255,0.08);
+      border: 1px solid rgba(0,122,255,0.15);
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin: 2.5rem 0;
+    }
 
-        a {
-            color: var(--primary);
-            text-decoration: none;
-        }
+    .contact-section {
+      background: rgba(255,255,255,0.6);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      padding: 2rem;
+      border-radius: 18px;
+      margin-top: 3rem;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
 
-        footer {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            margin-top: 4rem;
-            text-align: center;
-            color: var(--text-secondary);
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-secondary);
+      font-size: .9rem;
+    }
 
-            .container {
-                padding: 2rem 1rem;
-            }
-        }
-    </style>
+    @media (min-width: 768px) {
+      .container {
+        padding: 4rem 2rem;
+      }
+
+      .page-card {
+        padding: 3rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Bruno Zayed</a>
-            <a href="index.html" class="back-link">← Voltar</a>
-        </div>
-    </nav>
 
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="meta">Última atualização: 24 de janeiro de 2025</p>
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">Bruno Zayed</a>
+    <a href="index.html" class="back-link">← Voltar</a>
+  </div>
+</nav>
 
-        <div class="highlight-box">
-            <p><strong>Em resumo:</strong> Seus dados são seus. Não coletamos, não vendemos, não compartilhamos nada. Nossos apps respeitam sua privacidade acima de tudo.</p>
-        </div>
+<div class="container">
+  <div class="page-card">
 
-        <h2>Introdução</h2>
-        <p>Esta política de privacidade se aplica a todos os aplicativos desenvolvidos por Bruno Zayed (Limitaê, CoffeepixelApp e futuros apps). Levamos sua privacidade a sério e queremos que você entenda exatamente como seus dados são tratados.</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Última atualização: 24 de janeiro de 2025</p>
 
-        <h2>Quais dados coletamos?</h2>
-        <p><strong>Nenhum dado pessoal é coletado.</strong></p>
-        
-        <p>Nossos aplicativos são projetados para funcionar completamente offline e localmente no seu dispositivo. Isso significa:</p>
-        
-        <ul>
-            <li>❌ Não coletamos seu nome, email ou qualquer informação de identificação</li>
-            <li>❌ Não rastreamos sua localização</li>
-            <li>❌ Não acessamos seus contatos ou fotos (exceto quando você escolhe uma foto para editar)</li>
-            <li>❌ Não usamos analytics ou ferramentas de rastreamento</li>
-            <li>❌ Não temos servidores próprios - tudo fica no seu iPhone/iPad</li>
-        </ul>
-
-        <h2>Como seus dados são armazenados?</h2>
-        <p>Todos os dados gerados pelos nossos apps ficam armazenados exclusivamente no seu dispositivo:</p>
-
-        <h3>Limitaê (Finance Tracker)</h3>
-        <ul>
-            <li>Transações financeiras e limites são salvos localmente usando Core Data</li>
-            <li>Nenhum dado financeiro sai do seu dispositivo</li>
-            <li>Se você usar iCloud, a Apple pode sincronizar entre seus dispositivos (controlado por você nas configurações do iOS)</li>
-        </ul>
-
-        <h3>CoffeepixelApp</h3>
-        <ul>
-            <li>Imagens editadas são processadas localmente</li>
-            <li>Você escolhe se quer salvar ou compartilhar - nós não guardamos nada</li>
-            <li>Nenhuma foto é enviada para servidores externos</li>
-        </ul>
-
-        <h2>Uso de serviços da Apple</h2>
-        <p>Nossos apps podem usar recursos nativos do iOS:</p>
-        
-        <ul>
-            <li><strong>iCloud:</strong> Se você ativar iCloud nas configurações do iOS, a Apple pode sincronizar dados do app entre seus dispositivos. Isso é controlado por você e sujeito à política de privacidade da Apple.</li>
-            <li><strong>Biblioteca de Fotos:</strong> Alguns apps podem solicitar acesso à sua biblioteca de fotos apenas quando você escolher editar uma imagem. Nunca acessamos sem sua permissão explícita.</li>
-        </ul>
-
-        <h2>Analytics e Crash Reports</h2>
-        <p>Utilizamos apenas os recursos básicos de analytics fornecidos pela Apple através do App Store Connect para entender:</p>
-        
-        <ul>
-            <li>Número de downloads (dados agregados e anônimos)</li>
-            <li>Relatórios de crashes (para melhorar a estabilidade do app)</li>
-        </ul>
-
-        <p>Estes dados são completamente anônimos e agregados pela Apple. Não temos acesso a informações que possam identificar você individualmente.</p>
-
-        <h2>Compartilhamento com terceiros</h2>
-        <p><strong>Não compartilhamos nenhum dado com terceiros.</strong> Nunca. Ponto final.</p>
-
-        <ul>
-            <li>❌ Sem anúncios (não vendemos seu espaço de tela)</li>
-            <li>❌ Sem SDKs de tracking</li>
-            <li>❌ Sem venda de dados</li>
-            <li>❌ Sem parcerias suspeitas</li>
-        </ul>
-
-        <h2>Segurança</h2>
-        <p>Como todos os dados ficam no seu dispositivo:</p>
-        
-        <ul>
-            <li>✅ Você controla a segurança através do Face ID/Touch ID do seu iPhone</li>
-            <li>✅ Se você ativar criptografia no iCloud, seus dados sincronizados serão criptografados</li>
-            <li>✅ Não há servidores nossos que possam ser hackeados</li>
-        </ul>
-
-        <h2>Seus direitos</h2>
-        <p>Você tem total controle sobre seus dados:</p>
-        
-        <ul>
-            <li><strong>Acessar:</strong> Todos os dados estão no app, visíveis para você a qualquer momento</li>
-            <li><strong>Deletar:</strong> Basta deletar o app para remover todos os dados do dispositivo</li>
-            <li><strong>Exportar:</strong> Alguns apps permitem exportar dados (como transações do Limitaê)</li>
-        </ul>
-
-        <h2>Apps de crianças</h2>
-        <p>Nossos apps não são direcionados a crianças menores de 13 anos. Não coletamos intencionalmente dados de crianças. Se você é pai/mãe e descobrir que seu filho forneceu informações, entre em contato conosco.</p>
-
-        <h2>Mudanças nesta política</h2>
-        <p>Podemos atualizar esta política ocasionalmente. Notificaremos mudanças significativas através de:</p>
-        
-        <ul>
-            <li>Atualização da data no topo desta página</li>
-            <li>Aviso dentro do app (em casos de mudanças importantes)</li>
-        </ul>
-
-        <h2>Jurisdição</h2>
-        <p>Esta política de privacidade é regida pelas leis do Brasil. Cumprimos com a Lei Geral de Proteção de Dados (LGPD).</p>
-
-        <div class="contact-section">
-            <h3>Dúvidas sobre privacidade?</h3>
-            <p>Se você tiver qualquer dúvida sobre esta política de privacidade ou sobre como seus dados são tratados, entre em contato:</p>
-            <p>
-                📧 Email: <a href="mailto:brunozay@gmail.com">brunozay@gmail.com</a><br>
-                🔗 LinkedIn: <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/">Bruno Zayed</a><br>
-                💻 GitHub: <a href="https://github.com/zaysauro">@zaysauro</a>
-            </p>
-        </div>
-
-        <div class="highlight-box">
-            <p><strong>Compromisso:</strong> Desenvolvemos apps que respeitam você. Privacidade não é um extra, é o padrão. Se algum dia isso mudar, você será o primeiro a saber.</p>
-        </div>
+    <div class="highlight-box">
+      <p><strong>Em resumo:</strong> Seus dados são seus. Não coletamos, não vendemos, não compartilhamos nada.</p>
     </div>
 
-    <footer>
-        <p>© 2025 Bruno Zayed • iOS Developer</p>
-        <p><a href="index.html">← Voltar para o site</a></p>
-    </footer>
+
+    <div class="contact-section">
+      <h3>Dúvidas sobre privacidade?</h3>
+      <p>
+        📧 <a href="mailto:brunozay@gmail.com">brunozay@gmail.com</a><br>
+        🔗 <a href="https://www.linkedin.com/in/bruno-zayed-7b85a285/">LinkedIn</a><br>
+        💻 <a href="https://github.com/zaysauro">GitHub</a>
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Compromisso:</strong> Privacidade não é um extra. É o padrão.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2025 Bruno Zayed • iOS Developer<br>
+  <a href="index.html">← Voltar para o site</a>
+</footer>
+
 </body>
 </html>
