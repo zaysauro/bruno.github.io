@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,14 +50,14 @@
     .post-card {
       background:var(--glass); backdrop-filter:blur(20px); border:1px solid var(--border);
       border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
-      transition:transform .25s ease;
+      transition:transform .25s ease; display: block;
     }
     .post-card:hover { transform:translateY(-6px); }
 
     .post-image { height:160px; display:flex; align-items:center; justify-content:center; font-size:3rem; background:linear-gradient(135deg,#667eea,#764ba2); }
     .post-content { padding:1.4rem; }
     .post-tag { font-size:.75rem; font-weight:600; color:var(--primary); display:inline-block; margin-bottom:.5rem; }
-    .post-title { font-size:1.3rem; margin-bottom:.4rem; }
+    .post-title { font-size:1.3rem; margin-bottom:.4rem; color: var(--text); }
     .post-excerpt { font-size:.95rem; color:var(--text-secondary); }
 
     /* CONTACT */
@@ -66,6 +66,8 @@
 
     /* FOOTER */
     footer { text-align:center; padding:3rem 1rem; font-size:.9rem; color:var(--text-secondary); }
+    .footer-links { margin-top: 10px; }
+    .footer-links a { text-decoration: underline; margin: 0 10px; }
   </style>
 </head>
 
@@ -73,10 +75,9 @@
 
 <header>
   <div class="nav-container">
-    <a href="/" class="logo">Bruno Zayed</a>
+    <a href="index.html" class="logo">Bruno Zayed</a>
     <nav class="nav-links">
       <a href="#blog">Blog</a>
-      <a href="/apps/">Apps</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -94,7 +95,7 @@
   <p class="section-subtitle">Building apps and learning in public</p>
 
   <div class="posts-grid" id="postsGrid">
-    <!-- Blog posts will be injected here -->
+    <p style="text-align:center; grid-column: 1/-1;">Carregando posts...</p>
   </div>
 </section>
 
@@ -106,7 +107,6 @@
     <p>You can find me here:</p>
     <div class="contact-links">
       <a href="https://github.com/zaysaura" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
       <a href="mailto:brunozayed@email.com">Email</a>
     </div>
   </div>
@@ -115,21 +115,35 @@
 </main>
 
 <footer>
-  © 2025 Bruno Zayed • Built with care ☕
+  <p>© 2025 Bruno Zayed • Built with care ☕</p>
+  <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+  </div>
 </footer>
 
 <script>
-  // Load all blog posts dynamically
+  // Carrega os posts do arquivo JSON
+  // Certifique-se de que o arquivo blog/posts.json existe no seu repositório!
   fetch("./blog/posts.json")
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error("Não foi possível carregar o arquivo posts.json");
+      return res.json();
+    })
     .then(posts => {
       const grid = document.getElementById("postsGrid");
+      grid.innerHTML = ""; // Limpa o "Carregando..."
+
+      if (posts.length === 0) {
+        grid.innerHTML = "<p style='text-align:center; grid-column: 1/-1;'>Nenhum post encontrado.</p>";
+        return;
+      }
+
       posts.forEach(post => {
         const card = document.createElement("a");
         card.href = post.url;
         card.className = "post-card";
         card.innerHTML = `
-          <div class="post-image">${post.icon}</div>
+          <div class="post-image">${post.icon || '📝'}</div>
           <div class="post-content">
             <span class="post-tag">${post.tag}</span>
             <h3 class="post-title">${post.title}</h3>
@@ -141,7 +155,8 @@
     })
     .catch(err => {
       console.error(err);
-      document.getElementById("postsGrid").innerHTML = "<p style='text-align:center;color:#999'>Failed to load blog posts.</p>";
+      document.getElementById("postsGrid").innerHTML = 
+        "<p style='text-align:center;color:#999;grid-column:1/-1;'>Erro ao carregar posts. Verifique se o arquivo 'blog/posts.json' existe.</p>";
     });
 </script>
 
